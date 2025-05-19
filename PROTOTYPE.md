@@ -31,12 +31,20 @@ After 1.5 weeks, we hope to have a working Tetris and its 5-block counterpart. M
 UML Diagrams and descriptions of key algorithms, classes, and how things fit together.
 
 Random ideas for project design:
-pieces class with block objects (that can have color).
- - Keeps track of whether it is fallen
- - will need a fall method
+
+pieces class
+ - Has blocks
+ - Has a center of rotation
  - and rotate (coordinate rotation)!
  - and move left and right
  - needs to check if a new position of the piece (after falling or moving) is valid
+ - will need a fall method
+
+
+block class (that can have color).
+ - Keeps track of whether it is fallen/is a wall/falling
+ - needs color
+
 Board class could be array of these block objects
 - Needs to be able to render it.
 - Uh score?

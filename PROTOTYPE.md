@@ -17,41 +17,56 @@ After 1.5 weeks, we hope to have a working Tetris and its 5-block counterpart. M
 - Falling pieces (and quick drop)
 - rotation
 - moving left and right
-
- ## Things that are very neccesary
 - Score tracking
 - Colorful pieces
 
 ## Thins that would be nice to have
-- Powerups?
 - Animations when clearing a row?
+- Maybe different modes with different types of boards (or other experimental modes like one where pieces spawn in the middle and you can stick them on the walls/ceilings)
  
 # Project Design
 
 UML Diagrams and descriptions of key algorithms, classes, and how things fit together.
 
-Random ideas for project design:
-
 pieces class
- - Has blocks
- - Has a center of rotation
- - and rotate (coordinate rotation)!
- - and move left and right
- - needs to check if a new position of the piece (after falling or moving) is valid
- - will need a fall method
+- int r,c for the row and column of centerpiece
+- ArrayList<Block>() blocks of the blocks it is made of
+- isValid(r, c,orientation) returns if that orientation and spot is a valid spot for the new center on the board
+- Move(r, c) moves the piece on  the board after checking if it is valid.
+- Drop, moveleft, moveright moves the piece
+- fullDrop() runs Drop until it hits the bottom
+- rotate() 
 
 
-block class (that can have color).
- - Keeps track of whether it is fallen/is a wall/falling
- - needs color
+Board class 
+- board (blocks[][]) starts out as all empty except for some wall blocks
+- piece currentFallingPiece points to the currently falling piece
+- piece spawnPiece() spawns a new piece
+- void render() makes the board show up in a pretty way on the screen
+- void tick() drops falling block and checks for filled rows
+- clearRow() removes all fallenpieces blocks in that row
 
-Board class could be array of these block objects
-- Needs to be able to render it.
-- Uh score?
+Blocks CLASS
+- String type (either "fallen", "empty", "wall" or "falling")
+- Color color
+- Piece piece //the piece the block belongs to
+- and the corresponding getters of these fields
     
 # Intended pacing:
 
 How you are breaking down the project and who is responsible for which parts.
 
 A timeline with expected completion dates of parts of the project. (CHANGE THIS!!!!!)
+
+1-2 days
+Block class + Simple constructor of pieces (just a straight piece) for testing other methods and as many other pieces as I can get done: Jessica
+Board class constructor + render method: Vincent
+
+2-5 days
+translation for pieces (Including falling and quickfall, and ideally up translations for potential expansion): Jessica
+Creation/constructor of rest of pieces: Vincent
+
+5-6 days
+Rotation: Vincent
+Clear board if row is full and add to score: Jessica
 

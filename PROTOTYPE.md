@@ -28,6 +28,8 @@ After 1.5 weeks, we hope to have a working Tetris and its 5-block counterpart. M
 
 UML Diagrams and descriptions of key algorithms, classes, and how things fit together.
 
+![UML DIAGRAM](UML.jpeg?raw=true "UML diagrams, containing all relevant classes and their variables." ) 
+
 pieces class
 - int r,c for the row and column of centerpiece
 - ArrayList<Block>() blocks of the blocks it is made of

@@ -10,7 +10,7 @@ PENTRiX -- This is the classic Tetris, but instead of tetrominoes we use pentomi
 
 **Expanded Description:**
 
-After 1.5 weeks, we hope to have a working Tetris and its 5-block counterpart. Mainly, we hope to create adequate centering and a working board that is aesthetically pleasing and functional; additional goals include functional rotation and dropping (as well as any other appropriate methods), as well as potential fun add-ons (maybe skills and/or power-ups?). 
+After 1.5 weeks, we hope to have a working Tetris and its 5-block counterpart. Mainly, we hope to create adequate centering and a working board that is aesthetically pleasing and functional; additional goals include functional rotation and dropping (as well as any other appropriate methods), as well as potential fun add-ons (maybe skills and/or power-ups?).
 
 ## Things Strictly Neccesary:
 - Clear line after filled
@@ -23,12 +23,12 @@ After 1.5 weeks, we hope to have a working Tetris and its 5-block counterpart. M
 ## Thins that would be nice to have
 - Animations when clearing a row?
 - Maybe different modes with different types of boards (or other experimental modes like one where pieces spawn in the middle and you can stick them on the walls/ceilings)
- 
+
 # Project Design
 
 UML Diagrams and descriptions of key algorithms, classes, and how things fit together.
 
-![UML DIAGRAM](UML.jpeg?raw=true "UML diagrams, containing all relevant classes and their variables." ) 
+![UML DIAGRAM](UML.png?raw=true "UML diagrams, containing all relevant classes and their variables." ) 
 
 pieces class
 - int r,c for the row and column of centerpiece
@@ -37,10 +37,10 @@ pieces class
 - Move(r, c) moves the piece on  the board after checking if it is valid.
 - Drop, moveleft, moveright moves the piece
 - fullDrop() runs Drop until it hits the bottom
-- rotate() 
+- rotate()
 
 
-Board class 
+Board class
 - board (blocks[][]) starts out as all empty except for some wall blocks
 - piece currentFallingPiece points to the currently falling piece
 - piece spawnPiece() spawns a new piece
@@ -53,7 +53,7 @@ Blocks CLASS
 - Color color
 - Piece piece //the piece the block belongs to
 - and the corresponding getters of these fields
-    
+
 # Intended pacing:
 
 How you are breaking down the project and who is responsible for which parts.
@@ -71,4 +71,3 @@ Creation/constructor of rest of pieces: Vincent
 5-6 days
 Rotation: Vincent
 Clear board if row is full and add to score: Jessica
-

@@ -5,10 +5,6 @@ public class Block{
   int y; //x's and ys relative to center.
   String type;
   
-  Block(color c, String type){
-    this.c = c; 
-    setType(type);
-  }
   
   Block(int xpos, int ypos){
     this.x = xpos;

@@ -1,14 +1,20 @@
 public class Block{
  
   color c;
+  int x;
+  int y; //x's and ys relative to center.
   String type;
-  Piece piece;
   
-  Block(color c, String type, Piece piece){
-    this.c = c; 
-    setType(type);
-    this.piece = piece;
+  
+  Block(int xpos, int ypos){
+    this.x = xpos;
+    this.y = ypos;
+    this.c = 0;
+    this.type = "Template";
   }
+  
+  public int getX(){return this.x;}
+  public int getY(){return this.y;}
   
   public String getType(){return type;}
   public void setType(String newType){
@@ -23,8 +29,5 @@ public class Block{
     c = toSet;}
   
   public color getColor(){return c;}
-  
-  public void fall(){
-  this.piece = null; //no longer belongs to any piece
-  }
+ 
 }

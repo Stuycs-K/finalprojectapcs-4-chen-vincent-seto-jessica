@@ -1,6 +1,6 @@
 public class Block{
  
-  color c;
+  private color c;
   int x;
   int y; //x's and ys relative to center.
   String type;
@@ -21,8 +21,8 @@ public class Block{
   }
   
   
-  public int getX(){return this.x;}
-  public int getY(){return this.y;}
+  public int getXOffset(){return this.x;}
+  public int getYOffset(){return this.y;}
   
   public String getType(){return type;}
   public void setType(String newType){

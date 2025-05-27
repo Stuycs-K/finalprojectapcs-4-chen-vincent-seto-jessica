@@ -39,7 +39,7 @@ public class Board{
 
        if(board[i][j] != null) {
        fill(board[i][j].c);
-       square(40*i,40*j,40);
+       square(40*j,40*i,40);
        }
 
        }

@@ -1,9 +1,11 @@
 public class Board{
+  int bwidth = 14;
+  int bheight = 26;
   Block[][] board;
   Piece currentFallingPiece;
   
   Board(){
-    board = new Block[14][26];
+    board = new Block[bwidth][bheight];
     //10x20 board, 2 x 2 border, bottom 2 for info
   }
   

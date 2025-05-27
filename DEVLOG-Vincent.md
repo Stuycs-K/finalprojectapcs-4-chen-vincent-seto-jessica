@@ -11,4 +11,7 @@ Outlined methods and desired functionality, drafted 3 desired classes (Block, Pi
 Fixed/translated UML Diagram, finalized overall project design
 
 ### May 23rd - Initial Implementations/Coding
-Minor fixes to UML diagram, [].
+Minor fixes to UML diagram, wrote up render.
+
+### May 27th - Initial Implementations/Coding
+Wrote render and completed preliminary Block class, 

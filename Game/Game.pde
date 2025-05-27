@@ -1,5 +1,5 @@
 void setup() {
-  size(260*4,140*4);
+  size(140*4,260*4);
   background(255);
   Board board = new Board();
   board.render();
@@ -7,22 +7,21 @@ void setup() {
 }
 
 void spawnPiece() {
-  
+
 }
 
 void tick() {
-  
-  
+ 
 }
 
 int score() {
   return -1;
-  
-  
+
+
 }
 
 boolean endGame() {
   return false;
-  
-  
+
+
 }

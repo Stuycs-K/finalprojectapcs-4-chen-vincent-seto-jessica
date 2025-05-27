@@ -1,6 +1,6 @@
 public class Piece{
  //to be implemented later.
- ArrayList<Block[]> allpieces = new ArrayList<>(); //this should be static but the thing doesnt let me make it static
+  ArrayList<Block[]> allpieces = new ArrayList<>(); //this should be static but the thing doesnt let me make it static
   Board board;
   int centerx;
   int centery;
@@ -25,5 +25,5 @@ public class Piece{
     }
     
   }
-
+ 
 }

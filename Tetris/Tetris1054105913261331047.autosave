@@ -3,5 +3,5 @@ void setup() {
   background(255);
   
   Block test = new Block( 0, 0);
-  test.setColor(color(5));
+  test.setColor( color(5));
 }

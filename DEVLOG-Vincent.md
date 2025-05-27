@@ -14,4 +14,4 @@ Fixed/translated UML Diagram, finalized overall project design
 Minor fixes to UML diagram, wrote up render.
 
 ### May 27th - Initial Implementations/Coding
-Wrote render and completed preliminary Block class, 
+Wrote render and completed preliminary Board class, created walls and started work on Piece

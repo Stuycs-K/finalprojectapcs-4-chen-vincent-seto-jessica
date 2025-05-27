@@ -6,5 +6,9 @@ This document must be updated daily every time you finish a work session.
 
 ### May 21st
 Drafted block and fixed UML diagrams
-### 2024-01-03 - Brief description
-Expanded description including how much time was spent on task.
+
+### May 23rd
+Editied Block class a bit and started on pieces
+
+### May 27th
+Helped Vincent fix the board class and render, and also figured out why the pieces wasn't working (I can't have the templates be static)

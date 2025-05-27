@@ -7,23 +7,23 @@ void setup() {
 }
 
 void spawnPiece() {
-  
+
 }
 
 void tick() {
-  
-  
-  
+
+
+
 }
 
 int score() {
   return -1;
-  
-  
+
+
 }
 
 boolean endGame() {
   return false;
-  
-  
+
+
 }

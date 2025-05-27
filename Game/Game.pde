@@ -11,7 +11,7 @@ void spawnPiece() {
 }
 
 void tick() {
- 
+
 }
 
 int score() {

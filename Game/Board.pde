@@ -19,7 +19,7 @@ public class Board{
      }
     }
     //finish later
- 
+
   for(int i = 0; i < 26; i++) {
     for(int j = 0; j < 2; j++) {
      board[i][j] = new Block( ); //Defaults to wall
@@ -34,16 +34,16 @@ public class Board{
 
   void render(){
     for(int i = 0; i < board.length; i++) {
- 
+
      for(int j = 0; j < board[0].length; j++) {
 
        if(board[i][j] != null) {
        fill(board[i][j].c);
- 
+
         square(40*i,40*j,40);
        square(40*j,40*i,40);
        }
- 
+
        }
 
     }

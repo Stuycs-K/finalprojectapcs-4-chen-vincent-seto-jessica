@@ -7,17 +7,14 @@ public class Board{
   Board(){
     board = new Block[bwidth][bheight];
     //10x20 board, 2 x 2 border, bottom 2 for info
-  }
-  
-  void render() {
+    
     for(int i = 0; i < 2; i++) {
      for(int j = 0; j < 14; j++) {
-      board[i][j] = new Block(i,j); //piece needs implementation 
-     }
+      board[i][j] = new Block(); //Defaults to wall
     }
     for(int i = 22; i < 26; i++) {
      for(int j = 0; j < 14; j++) {
-      board[i][j] = new Block(i,j); //piece needs implementation 
+      board[i][j] = new Block(); //Defaults to wall
      }
     }
     //finish later
@@ -25,14 +22,16 @@ public class Board{
   for(int i = 0; i < 26; i++) {
    for(int j = 0; j < 2; j++) {
      
-     board[i][j] = new Block(i,j); //piece needs implementation 
-   }
+     board[i][j] = new Block( ); //Defaults to wall
    for(int j = 12; j < 14; j++) {
-     board[i][j] = new Block(i,j); //piece needs implementation 
+     board[i][j] = new Block( ); //Defaults to wall
      
    }
     
   }
+  }
+  
+  void render(){
 }
 void clearRow(int row) {
     for(int j = row-1; j >= 2; j++) {

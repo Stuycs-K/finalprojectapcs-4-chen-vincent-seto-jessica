@@ -12,6 +12,13 @@ public class Block{
     this.c = 0;
     this.type = "Template";
   }
+    
+  
+  Block(){
+ 
+    this.c = 0;
+    this.type = "wall";
+  }
   
   public int getX(){return this.x;}
   public int getY(){return this.y;}

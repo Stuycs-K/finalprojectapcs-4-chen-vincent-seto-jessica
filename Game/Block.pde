@@ -1,14 +1,14 @@
 public class Block{
 
   color c;
-   int x;
-  int y; //x's and ys relative to center.
+   int col;
+  int row; //x's and ys relative to center.
   String type;
 
 
-  Block(int xpos, int ypos){
-    this.x = xpos;
-    this.y = ypos;
+  Block(int col, int row){
+    this.col = col;
+    this.row = row;
     this.c = 0;
     this.type = "Template";
   }
@@ -21,8 +21,8 @@ public class Block{
   }
 
 
-  public int getXOffset(){return this.x;}
-  public int getYOffset(){return this.y;}
+  public int getCOffset(){return this.col;}
+  public int getROffset(){return this.row;}
 
 
   public String getType(){return type;}

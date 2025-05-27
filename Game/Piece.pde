@@ -8,7 +8,7 @@ public class Piece{
   Block[] shape;
 
  Piece(Board board){
-   this(2,3, board);
+   this(2,4, board);
 
   }
   Piece(int centerx, int centery, Board board){
@@ -21,7 +21,7 @@ public class Piece{
 
     for(Block part: shape){
       part.setColor(c);
-      //board.set(part.getXOffset() + centerx, part.getYOffset() + centery , part);
+      board.set(part.getXOffset() + centerx, part.getYOffset() + centery , part);
     }
 
   }

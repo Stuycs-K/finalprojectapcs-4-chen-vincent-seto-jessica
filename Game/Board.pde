@@ -3,6 +3,9 @@ public class Board{
   int bheight = 26;
   Block[][] board;
   Piece currentFallingPiece;
+  void set(int r, int c, Block toSet){
+    board[r][c] = toSet;
+  }  
 
   Board(){
     board = new Block[bheight][bwidth];
@@ -40,7 +43,6 @@ public class Board{
        if(board[i][j] != null) {
        fill(board[i][j].c);
 
-        square(40*i,40*j,40);
        square(40*j,40*i,40);
        }
 

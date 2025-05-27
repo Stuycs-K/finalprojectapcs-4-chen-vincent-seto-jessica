@@ -2,8 +2,9 @@ void setup() {
   size(140*4,260*4);
   background(255);
   Board board = new Board();
+  Piece test = new Piece(board);
   board.render();
-  //Block test = new Block( color(50), "a", new Piece());
+
 }
 
 void spawnPiece() {

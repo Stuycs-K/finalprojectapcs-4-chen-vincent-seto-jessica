@@ -5,12 +5,13 @@ public class Board{
   Piece currentFallingPiece;
   
   Board(){
-    board = new Block[bwidth][bheight];
+    board = new Block[bheight][bwidth];
     //10x20 board, 2 x 2 border, bottom 2 for info
     
     for(int i = 0; i < 2; i++) {
      for(int j = 0; j < 14; j++) {
       board[i][j] = new Block(); //Defaults to wall
+    }
     }
     for(int i = 22; i < 26; i++) {
      for(int j = 0; j < 14; j++) {
@@ -21,17 +22,29 @@ public class Board{
   
   for(int i = 0; i < 26; i++) {
    for(int j = 0; j < 2; j++) {
-     
      board[i][j] = new Block( ); //Defaults to wall
-   for(int j = 12; j < 14; j++) {
-     board[i][j] = new Block( ); //Defaults to wall
+  }
+  for(int r = 12; r < 14; r++) {
+     board[i][r] = new Block( ); //Defaults to wall
      
    }
-    
   }
-  }
+    }
+  
   
   void render(){
+    for(int i = 0; i < board.length; i++) {
+      
+     for(int j = 0; j < board[0].length; j++) {
+       
+       if(board[i][j] != null) {
+       fill(board[i][j].c);
+       square(40*i,40*j,40);
+       }
+       
+       }
+     
+    }
 }
 void clearRow(int row) {
     for(int j = row-1; j >= 2; j++) {
@@ -41,7 +54,8 @@ void clearRow(int row) {
     }
     
   }
+ 
+ }
 
   
   
-}

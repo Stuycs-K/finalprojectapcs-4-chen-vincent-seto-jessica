@@ -1,5 +1,5 @@
 void setup() {
-  size(1200, 900);
+  size(260*4,140*4);
   background(255);
   Board board = new Board();
   board.render();

@@ -16,9 +16,10 @@ public class Block{
   
   Block(){
  
-    this.c = 0;
+    this.c = color(0,0,83); 
     this.type = "wall";
   }
+  
   
   public int getX(){return this.x;}
   public int getY(){return this.y;}

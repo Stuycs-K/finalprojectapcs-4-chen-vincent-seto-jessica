@@ -56,7 +56,7 @@ public class Board{
 }
 
 boolean checkEmpty(int r, int c){
-  return board[r][c] == null; 
+  return board[r][c] == null;
 }
 void clearRow(int row) {
     for(int j = row-1; j >= 2; j++) {

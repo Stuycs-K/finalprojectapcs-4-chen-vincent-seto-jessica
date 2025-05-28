@@ -11,7 +11,7 @@ public class Piece{
    this(2,4, board);
 
   }
-  
+
   Piece(int centerC, int centerR, Board board){
     this.board = board;
     this.centerC = centerC;
@@ -26,7 +26,7 @@ public class Piece{
     }
 
   }
-  
+
   boolean canFit(Board board, int newx, int newy){
      for(Block part: shape){
       part.setColor(c);

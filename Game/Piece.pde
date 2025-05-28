@@ -26,11 +26,26 @@ public class Piece{
     }
 
   }
-  
-  boolean canFit(Board board, int newx, int newy){
-     for(Block part: shape){
+  void dropOne(){
+    if(canFit(board, centerR + 1, centerC)){
+          for(Block part: shape){
       part.setColor(c);
-      if(!board.checkEmpty(part.getROffset() + newx, part.getCOffset() + newy)){
+      board.set(part.getCOffset() + centerC, part.getROffset() + centerR , null);
+    }
+    centerR++;
+   for(Block part: shape){
+      part.setColor(c);
+      board.set(part.getCOffset() + centerC, part.getROffset() + centerR , part);
+    }
+    }
+  }
+    
+  boolean canFit(Board board, int newr, int newc){return canFit(board, newr, newc, shape);}
+
+  boolean canFit(Board board, int newr, int newc, Block[] pieceShape){
+     for(Block part: pieceShape){
+      part.setColor(c);
+      if(!board.checkEmpty(part.getROffset() + newr, part.getCOffset() + newc)){
         return false;}
     }
 return true;

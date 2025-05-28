@@ -8,11 +8,11 @@ public class Piece{
   Block[] shape;
 
  Piece(Board board){
-   this(2,4, board);
+   this(3,4, board);
 
   }
   
-  Piece(int centerC, int centerR, Board board){
+  Piece(int centerR , int centerC, Board board){
     this.board = board;
     this.centerC = centerC;
     this.centerR = centerR;
@@ -22,7 +22,7 @@ public class Piece{
 
     for(Block part: shape){
       part.setColor(c);
-      board.set(part.getCOffset() + centerC, part.getROffset() + centerR , part);
+     board.set(part.getROffset() + centerR, part.getCOffset() + centerC, part);
     }
 
   }
@@ -30,12 +30,12 @@ public class Piece{
     if(canFit(board, centerR + 1, centerC)){
           for(Block part: shape){
       part.setColor(c);
-      board.set(part.getCOffset() + centerC, part.getROffset() + centerR , null);
+      board.set(part.getROffset() + centerR, part.getCOffset() + centerC, null);
     }
     centerR++;
    for(Block part: shape){
       part.setColor(c);
-      board.set(part.getCOffset() + centerC, part.getROffset() + centerR , part);
+      board.set(part.getROffset() + centerR, part.getCOffset() + centerC,  part);
     }
     }
   }

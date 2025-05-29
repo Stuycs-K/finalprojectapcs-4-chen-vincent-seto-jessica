@@ -10,7 +10,7 @@ public class Block{
     this.col = col;
     this.row = row;
     this.c = 0;
-    this.type = "Template";
+    this.type = "falling";
   }
 
 
@@ -24,7 +24,9 @@ public class Block{
   public int getCOffset(){return this.col;}
   public int getROffset(){return this.row;}
 
-
+  public String toString(){
+    return "Block of type " + type + " and color " + c + " row " + row + " column " + col;
+  }
   public String getType(){return type;}
   public void setType(String newType){
     if(!newType.equals("fallen") && !newType.equals("falling") && !newType.equals("wall")){

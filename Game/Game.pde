@@ -1,11 +1,11 @@
+Board board;
+Piece current;
 void setup() {
   size(140*4,260*4);
   background(255);
-  Board board = new Board();
-  Piece test = new Piece(board);
-  test.rotate();
+   board = new Board();
+  current = new Piece(board);
   board.render();
-
 }
 
 void spawnPiece() {
@@ -14,6 +14,12 @@ void spawnPiece() {
 
 void tick() {
 
+}
+
+void mouseClicked(){
+  //current.rotate();
+  current.dropOne();
+  board.render();
 }
 
 int score() {
@@ -26,4 +32,7 @@ boolean endGame() {
   return false;
 
 
+}
+
+void draw() {
 }

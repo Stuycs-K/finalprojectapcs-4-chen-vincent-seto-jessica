@@ -55,7 +55,6 @@ public class Piece{
 
   boolean canFit(Board board, int newr, int newc, Block[] pieceShape){
      for(Block part: pieceShape){
-      part.setColor(c);
       if(!board.checkEmpty(part.getROffset() + newr, part.getCOffset() + newc)){
         return false;}
     }

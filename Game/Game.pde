@@ -23,9 +23,12 @@ void tick() {
   score += score();
 }
 
-void mouseClicked(){
-  current.rotate();
-  //current.dropOne();
+void keyPressed(){
+  if(key == 'r'){
+  current.rotate();}else if(key == 'w'){
+    current.dropOne();
+  }
+
   board.render();
 }
 

@@ -13,6 +13,7 @@ public class Piece{
   }
   
   Piece(int centerR , int centerC, Board board){
+
     this.board = board;
     this.centerC = centerC;
     this.centerR = centerR;
@@ -39,6 +40,7 @@ public class Piece{
   
   void removePieceFromBoard(Board board){
      for(Block part: shape){
+ 
       board.set(part.getROffset() + centerR, part.getCOffset() + centerC, null);
     }
   }

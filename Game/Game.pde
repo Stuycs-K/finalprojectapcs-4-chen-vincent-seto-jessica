@@ -3,6 +3,7 @@ void setup() {
   background(255);
   Board board = new Board();
   Piece test = new Piece(board);
+  test.rotate();
   board.render();
 
 }

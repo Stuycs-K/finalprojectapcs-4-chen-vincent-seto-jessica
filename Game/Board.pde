@@ -13,19 +13,20 @@ public class Board{
 
     for(int i = 0; i < 2; i++) {
      for(int j = 0; j < bwidth; j++) {
-      board[i][j] = new Block(); //Defaults to wall
+      board[i][j] = new Block("wall");  
     }
     }
-    for(int i = bheight - 4; i < bheight; i++) {
+    
+    for(int i = bheight - 2; i < bheight; i++) {
      for(int j = 0; j < bwidth; j++) {
-      board[i][j] = new Block(); //Defaults to wall
+      board[i][j] = new Block("wall");  
      }
     }
     //finish later
 
   for(int i = 0; i < bheight; i++) {
     for(int j = 0; j < 2; j++) {
-     board[i][j] = new Block( ); //Defaults to wall
+      board[i][j] = new Block("wall");  
   }
 
 
@@ -33,7 +34,7 @@ public class Board{
   for(int i = 0; i < bheight; i++) {
 
     for(int j = 12; j < bwidth; j++) {
-     board[i][j] = new Block( ); //Defaults to wall
+      board[i][j] = new Block("wall");  
   }
   }
     }

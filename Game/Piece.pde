@@ -8,12 +8,10 @@ public class Piece{
   Block[] shape;
 
  Piece(Board board){
-   this(5,6, board);
-
+    this(5, (int) (Math.random() * (board.getWidth() - 6)) + 3, board);
   }
 
   Piece(int centerR , int centerC, Board board){
-
     this.board = board;
     this.centerC = centerC;
     this.centerR = centerR;

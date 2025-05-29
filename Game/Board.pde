@@ -47,8 +47,9 @@ public class Board{
        if(board[i][j] != null) {
        fill(board[i][j].c);
 
+       }else{
+         fill(color(255));}
        square(40*j,40*i,40);
-       }
 
        }
 

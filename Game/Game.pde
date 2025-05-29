@@ -1,3 +1,4 @@
+import java.util.Arrays;
 Board board;
 Piece current;
 void setup() {

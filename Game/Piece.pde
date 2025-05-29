@@ -29,12 +29,10 @@ public class Piece{
   void dropOne(){
     if(canFit(board, centerR + 1, centerC)){
           for(Block part: shape){
-      part.setColor(c);
       board.set(part.getROffset() + centerR, part.getCOffset() + centerC, null);
     }
     centerR++;
    for(Block part: shape){
-      part.setColor(c);
       board.set(part.getROffset() + centerR, part.getCOffset() + centerC,  part);
     }
     }

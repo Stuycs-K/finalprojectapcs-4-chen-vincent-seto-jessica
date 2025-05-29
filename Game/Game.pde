@@ -1,4 +1,3 @@
- 
 import java.util.Arrays;
 Board board;
 int score = 0;
@@ -15,12 +14,23 @@ void setup() {
 }
 
 void spawnPiece() {
-
+current = new Piece(board);
 }
 
 void tick() {
-
-  score += score();
+  board.render();
+  //figure out dropping and insert
+  board.render();
+  if(endGame()) {
+    background(30);
+    System.out.println("Game Over. Score: " + score);
+  }
+  else {
+    score += score();
+  }
+  if(current == null) {
+    spawnPiece();
+  }
 }
 
 void keyPressed(){
@@ -61,8 +71,12 @@ int score() {
   }
 
 
-boolean endGame() {
 
+boolean endGame() {
+  /*if() {
+   return true;
+  } //finish writing pieces and figure out
+  */
   return false;
 
 

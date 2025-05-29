@@ -18,3 +18,9 @@ Tweaked Piece and Block class and got a test piece to spawn in correctly, change
 
 ### May 28th In-class
 Unreversed the rows and columns in pieces, got single drop working, fixed the canFit a bit but did not rigorosly test anything yet
+
+### May 28th Homework
+Got single drop actually working, fixed the canFit to work properly, drafted Rotate, fixed render
+
+### May 29th in class
+Made it so pieces got a random color, fixed rotate, and started adding the actual custom pieces

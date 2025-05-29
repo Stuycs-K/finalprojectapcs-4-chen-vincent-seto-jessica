@@ -11,23 +11,46 @@ public class Piece{
    this(5,6, board);
 
   }
-  
+
   Piece(int centerR , int centerC, Board board){
 
     this.board = board;
     this.centerC = centerC;
     this.centerR = centerR;
     this.c = color((int) ( 256 * Math.random()),(int) ( 256 * Math.random()),(int) ( 256 * Math.random())) ;
-    
+    //O
     allpieces.add(new Block[] {new Block(0, 2), new  Block(0, 1), new Block(0, 0), new  Block(0, -1),new  Block(1, -1)});
-    allpieces.add(new Block[] {new Block(-1, 1), new  Block(1, 1), new Block(0, 1), new  Block(0, -1),new  Block(0, 0)});
-    allpieces.add(new Block[] {new Block(0, 2), new  Block(0, 1), new Block(0, 0), new  Block(0, -1),new  Block(1, -1)});
-    allpieces.add(new Block[] {new Block(0, 2), new  Block(0, 1), new Block(0, 0), new  Block(0, -1),new  Block(1, -1)});
-    //allpieces.add(new Block[] {new Block(0, 2), new  Block(0, 1), new Block(0, 0), new  Block(0, -1),new  Block(1, -1)});
-
+     allpieces.add(new Block[] {new Block(-1, 1), new  Block(1, 1), new Block(0, 1), new  Block(0, -1),new  Block(0, 0)});
+ 
     
-    
-    
+   //P
+  allpieces.add(new Block[] {new Block(0,1),new Block(1,1),new Block(0,0),new Block(1,0),new Block(0,-1)});
+  
+  //Q
+  allpieces.add(new Block[] {new Block(0, 2), new  Block(0, 1), new Block(0, 0), new  Block(0, -1),new  Block(1, -1)});
+  
+  //R
+  
+  allpieces.add(new Block[] {new Block(0,1),new Block(1,1),new Block(0,0),new Block(-1,0),new Block(0,-1)});
+  
+  //S
+  allpieces.add(new Block[] {new Block(-2,0),new Block(-1,0),new Block(0,0),new Block(0,1),new Block(1,1)});
+  //T
+  allpieces.add(new Block[] {new Block(-1, 1), new  Block(1, 1), new Block(0, 1), new  Block(0, -1),new  Block(0, 0)});
+  //U  
+  allpieces.add(new Block[] {new Block(0,1),new Block(1,1),new Block(0,0),new Block(0,-1),new Block(1,-1)});
+  //V
+  allpieces.add(new Block[] {new Block(0,2),new Block(0,1),new Block(0,0),new Block(1,0),new Block(2,0)});
+  //W
+  allpieces.add(new Block[] {new Block(-1,1),new Block(-1,0),new Block(0,0),new Block(0,-1),new Block(1,-1)});
+  //X
+  allpieces.add(new Block[] {new Block(0,1),new Block(-1,0),new Block(0,0),new Block(0,-1),new Block(1,0)});
+  //Y
+  allpieces.add(new Block[] {new Block(-2,0),new Block(-1,0),new Block(0,0),new Block(0,1),new Block(1,0)});
+  //Z
+  allpieces.add(new Block[] {new Block(-1,1),new Block(0,1),new Block(0,0),new Block(0,-1),new Block(1,-1)});
+     
+  
     
     //shape = allpieces.get((int) (Math.random() * allpieces.size()));
     shape = allpieces.get(allpieces.size() - 1);
@@ -37,19 +60,20 @@ public class Piece{
     }
 
   }
-  
+ 
+
   void removePieceFromBoard(Board board){
      for(Block part: shape){
- 
-      board.set(part.getROffset() + centerR, part.getCOffset() + centerC, null);
-    }
+
+       board.set(part.getROffset() + centerR, part.getCOffset() + centerC, null);
+     }
   }
-  
+
   void addPieceToBoard(Board board){
      for(Block part: shape){
       board.set(part.getROffset() + centerR, part.getCOffset() + centerC,  part);
     }}
-  
+
   void dropOne(){
     if(canFit(board, centerR + 1, centerC)){
       removePieceFromBoard(board);
@@ -57,10 +81,10 @@ public class Piece{
      addPieceToBoard(board);
     }
   }
-    
+
   boolean rotate(){
    Block[] newRotation = new Block[shape.length];
-   int i = 0; 
+   int i = 0;
   for(Block part: shape){
     newRotation[i] = new Block(part.getROffset(), - 1 * part.getCOffset(), c); //becomes (y, -x) (-1, 2) should map to (2, 1)
     i++;

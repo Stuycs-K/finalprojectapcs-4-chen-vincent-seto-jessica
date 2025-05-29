@@ -26,15 +26,23 @@ public class Piece{
     }
 
   }
-  void dropOne(){
-    if(canFit(board, centerR + 1, centerC)){
-          for(Block part: shape){
+  
+  void removePieceFromBoard(Board board){
+     for(Block part: shape){
       board.set(part.getROffset() + centerR, part.getCOffset() + centerC, null);
     }
-    centerR++;
-   for(Block part: shape){
+  }
+  
+  void addPieceToBoard(Board board){
+     for(Block part: shape){
       board.set(part.getROffset() + centerR, part.getCOffset() + centerC,  part);
-    }
+    }}
+  
+  void dropOne(){
+    if(canFit(board, centerR + 1, centerC)){
+      removePieceFromBoard(board);
+    centerR++;
+     addPieceToBoard(board);
     }
   }
     
@@ -47,7 +55,8 @@ public class Piece{
   }
   if(canFit(board, centerR, centerC, newRotation)){
     shape = newRotation;
-  return true;}else{return false;}
+  return true;}
+  else{return false;}
   }
   boolean canFit(Board board, int newr, int newc){return canFit(board, newr, newc, shape);}
 

@@ -54,9 +54,12 @@ public class Piece{
     i++;
   }
   if(canFit(board, centerR, centerC, newRotation)){
+    removePieceFromBoard(board);
     shape = newRotation;
-  return true;}
-  else{return false;}
+    addPieceToBoard(board);
+      return true;
+    }else{
+  return false;}
   }
   boolean canFit(Board board, int newr, int newc){return canFit(board, newr, newc, shape);}
 

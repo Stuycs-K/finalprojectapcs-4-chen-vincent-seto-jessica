@@ -18,8 +18,8 @@ void tick() {
 }
 
 void mouseClicked(){
-  //current.rotate();
-  current.dropOne();
+  current.rotate();
+  //current.dropOne();
   board.render();
 }
 

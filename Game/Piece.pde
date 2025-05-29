@@ -18,7 +18,7 @@ public class Piece{
     this.centerC = centerC;
     this.centerR = centerR;
     this.c = (int) ( 256 * Math.random());
-    allpieces.add( new Block[] {new Block(0, 0), new  Block(0, 1)});
+    allpieces.add( new Block[] {new Block(0, 0), new  Block(0, 1), new Block(1, -1)});
     shape = allpieces.get((int) (Math.random() * allpieces.size()));
 
     for(Block part: shape){
@@ -30,23 +30,31 @@ public class Piece{
   void dropOne(){
     if(canFit(board, centerR + 1, centerC)){
 
-     for(Block part: shape){
-      part.setColor(c);
+          for(Block part: shape){
       board.set(part.getROffset() + centerR, part.getCOffset() + centerC, null);
     }
     centerR++;
    for(Block part: shape){
-      part.setColor(c);
       board.set(part.getROffset() + centerR, part.getCOffset() + centerC,  part);
     }
     }
   }
     
+  boolean rotate(){
+   Block[] newRotation = new Block[shape.length];
+   int i = 0; 
+  for(Block part: shape){
+    newRotation[i] = new Block(part.getROffset(), - 1 * part.getCOffset()); //becomes (y, -x) (-1, 2) should map to (2, 1)
+    i++;
+  }
+  if(canFit(board, centerR, centerC, newRotation)){
+    shape = newRotation;
+  return true;}else{return false;}
+  }
   boolean canFit(Board board, int newr, int newc){return canFit(board, newr, newc, shape);}
 
   boolean canFit(Board board, int newr, int newc, Block[] pieceShape){
      for(Block part: pieceShape){
-      part.setColor(c);
       if(!board.checkEmpty(part.getROffset() + newr, part.getCOffset() + newc)){
         return false;}
     }

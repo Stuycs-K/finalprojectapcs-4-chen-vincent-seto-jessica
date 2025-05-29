@@ -57,9 +57,10 @@ public class Board{
 }
 
 boolean checkEmpty(int r, int c){
-  if(!(board[r][c] == null || board[r][c].getType().equals( "falling"))){
-     print(board[r][c]);
-  }
+
+//  if(!(board[r][c] == null || board[r][c].getType().equals( "falling"))){
+//     print(board[r][c]);
+//  }
   return (board[r][c] == null || board[r][c].getType().equals( "falling"));  //dont want falling pieces to stop themselves from falling
 }
 void clearRow(int row) {

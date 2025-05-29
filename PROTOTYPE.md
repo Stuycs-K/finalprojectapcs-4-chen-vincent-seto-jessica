@@ -66,12 +66,12 @@ Block class + Simple constructor of pieces (just a straight piece) for testing o
 Board class constructor + render method: Vincent
 
 Days 3-4
-Rotation: Jessica
-Creation/constructor of rest of pieces: Vincent
+isValid, down translation, rotation: Jessica
+More constructors for pieces : Vincent
 
 Day 5-6:
-isValid and quickdrop: Vincent
-translation for pieces (Ideally including up translations for potential expansion): Jessica
+Creation/constructor of rest of pieces: Jessica
+Quickdrop, sideways translation: Vincent
 
 Day 7-8:
 Game loop and decoration.

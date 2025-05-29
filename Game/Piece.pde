@@ -13,6 +13,7 @@ public class Piece{
   }
   
   Piece(int centerR , int centerC, Board board){
+
     this.board = board;
     this.centerC = centerC;
     this.centerR = centerR;
@@ -28,7 +29,8 @@ public class Piece{
   }
   void dropOne(){
     if(canFit(board, centerR + 1, centerC)){
-          for(Block part: shape){
+
+     for(Block part: shape){
       part.setColor(c);
       board.set(part.getROffset() + centerR, part.getCOffset() + centerC, null);
     }

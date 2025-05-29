@@ -5,7 +5,7 @@ public class Board{
   Piece currentFallingPiece;
   void set(int r, int c, Block toSet){
     board[r][c] = toSet;
-  }  
+  }
 
   Board(){
     board = new Block[bheight][bwidth];
@@ -33,7 +33,7 @@ public class Board{
    }
   }
     }
-  
+
 
 
   void render(){

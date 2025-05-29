@@ -18,14 +18,18 @@ public class Piece{
     this.centerR = centerR;
     this.c = color((int) ( 256 * Math.random()),(int) ( 256 * Math.random()),(int) ( 256 * Math.random())) ;
     
-    allpieces.add( new Block[] {new Block(0, 2), new  Block(0, 1), new Block(0, 0), new  Block(0, -1),new  Block(1, -1)});
-    
-    
-    
-    
-    
-    shape = allpieces.get((int) (Math.random() * allpieces.size()));
+    allpieces.add(new Block[] {new Block(0, 2), new  Block(0, 1), new Block(0, 0), new  Block(0, -1),new  Block(1, -1)});
+    allpieces.add(new Block[] {new Block(-1, 1), new  Block(1, 1), new Block(0, 1), new  Block(0, -1),new  Block(0, 0)});
+    allpieces.add(new Block[] {new Block(0, 2), new  Block(0, 1), new Block(0, 0), new  Block(0, -1),new  Block(1, -1)});
+    //allpieces.add(new Block[] {new Block(0, 2), new  Block(0, 1), new Block(0, 0), new  Block(0, -1),new  Block(1, -1)});
+    //allpieces.add(new Block[] {new Block(0, 2), new  Block(0, 1), new Block(0, 0), new  Block(0, -1),new  Block(1, -1)});
 
+    
+    
+    
+    
+    //shape = allpieces.get((int) (Math.random() * allpieces.size()));
+    shape = allpieces.get(allpieces.size() - 1);
     for(Block part: shape){
       part.setColor(c);
      board.set(part.getROffset() + centerR, part.getCOffset() + centerC, part);
@@ -67,6 +71,8 @@ public class Piece{
     }else{
   return false;}
   }
+  
+  
   boolean canFit(Board board, int newr, int newc){return canFit(board, newr, newc, shape);}
 
   boolean canFit(Board board, int newr, int newc, Block[] pieceShape){

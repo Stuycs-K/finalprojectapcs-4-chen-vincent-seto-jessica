@@ -70,11 +70,6 @@ int score() {
    return finalSc; //figure out how to make a tetris?
   }
 
-    }
-
-   }
-   return finalSc; //figure out how to make a tetris?
-  }
 
 
 boolean endGame() {

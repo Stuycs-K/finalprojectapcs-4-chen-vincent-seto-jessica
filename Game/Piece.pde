@@ -18,16 +18,36 @@ public class Piece{
     this.centerC = centerC;
     this.centerR = centerR;
     this.c = color((int) ( 256 * Math.random()),(int) ( 256 * Math.random()),(int) ( 256 * Math.random())) ;
-    
+    //O
     allpieces.add(new Block[] {new Block(0, 2), new  Block(0, 1), new Block(0, 0), new  Block(0, -1),new  Block(1, -1)});
-    allpieces.add(new Block[] {new Block(-1, 1), new  Block(1, 1), new Block(0, 1), new  Block(0, -1),new  Block(0, 0)});
-    allpieces.add(new Block[] {new Block(0, 2), new  Block(0, 1), new Block(0, 0), new  Block(0, -1),new  Block(1, -1)});
-    //allpieces.add(new Block[] {new Block(0, 2), new  Block(0, 1), new Block(0, 0), new  Block(0, -1),new  Block(1, -1)});
-    //allpieces.add(new Block[] {new Block(0, 2), new  Block(0, 1), new Block(0, 0), new  Block(0, -1),new  Block(1, -1)});
-
+  //P
+  allpieces.add(new Block[] {new Block(0,1),new Block(1,1),new Block(0,0),new Block(1,0),new Block(0,-1)});
+  
+  //Q
+  allpieces.add(new Block[] {new Block(0, 2), new  Block(0, 1), new Block(0, 0), new  Block(0, -1),new  Block(1, -1)});
+  
+  //R
+  
+  allpieces.add(new Block[] {new Block(0,1),new Block(1,1),new Block(0,0),new Block(-1,0),new Block(0,-1)});
+  
+  //S
+  allpieces.add(new Block[] {new Block(-2,0),new Block(-1,0),new Block(0,0),new Block(0,1),new Block(1,1)});
+  //T
+  allpieces.add(new Block[] {new Block(-1, 1), new  Block(1, 1), new Block(0, 1), new  Block(0, -1),new  Block(0, 0)});
+  //U  
+  allpieces.add(new Block[] {new Block(0,1),new Block(1,1),new Block(0,0),new Block(0,-1),new Block(1,-1)});
+  //V
+  allpieces.add(new Block[] {new Block(0,2),new Block(0,1),new Block(0,0),new Block(1,0),new Block(2,0)});
+  //W
+  allpieces.add(new Block[] {new Block(-1,1),new Block(-1,0),new Block(0,0),new Block(0,-1),new Block(1,-1)});
+  //X
+  allpieces.add(new Block[] {new Block(0,1),new Block(-1,0),new Block(0,0),new Block(0,-1),new Block(1,0)});
+  //Y
+  allpieces.add(new Block[] {new Block(-2,0),new Block(-1,0),new Block(0,0),new Block(0,1),new Block(1,0)});
+  //Z
+  allpieces.add(new Block[] {new Block(-1,1),new Block(0,1),new Block(0,0),new Block(0,-1),new Block(1,-1)});
     
-    
-    
+  
     
     //shape = allpieces.get((int) (Math.random() * allpieces.size()));
     shape = allpieces.get(allpieces.size() - 1);

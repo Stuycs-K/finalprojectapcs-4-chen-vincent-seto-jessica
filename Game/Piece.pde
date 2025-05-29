@@ -11,7 +11,7 @@ public class Piece{
    this(5,6, board);
 
   }
-  
+
   Piece(int centerR , int centerC, Board board){
 
     this.board = board;
@@ -37,19 +37,19 @@ public class Piece{
     }
 
   }
-   
+
   void removePieceFromBoard(Board board){
      for(Block part: shape){
- 
+
        board.set(part.getROffset() + centerR, part.getCOffset() + centerC, null);
     }
   }
-  
+
   void addPieceToBoard(Board board){
      for(Block part: shape){
       board.set(part.getROffset() + centerR, part.getCOffset() + centerC,  part);
     }}
-  
+
   void dropOne(){
     if(canFit(board, centerR + 1, centerC)){
       removePieceFromBoard(board);
@@ -57,10 +57,10 @@ public class Piece{
      addPieceToBoard(board);
     }
   }
-    
+
   boolean rotate(){
    Block[] newRotation = new Block[shape.length];
-   int i = 0; 
+   int i = 0;
   for(Block part: shape){
     newRotation[i] = new Block(part.getROffset(), - 1 * part.getCOffset(), c); //becomes (y, -x) (-1, 2) should map to (2, 1)
     i++;

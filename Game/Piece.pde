@@ -20,10 +20,7 @@ public class Piece{
     this.c = color((int) ( 256 * Math.random()),(int) ( 256 * Math.random()),(int) ( 256 * Math.random())) ;
     //O
     allpieces.add(new Block[] {new Block(0, 2), new  Block(0, 1), new Block(0, 0), new  Block(0, -1),new  Block(1, -1)});
-     allpieces.add(new Block[] {new Block(-1, 1), new  Block(1, 1), new Block(0, 1), new  Block(0, -1),new  Block(0, 0)});
- 
-    
-   //P
+  //P
   allpieces.add(new Block[] {new Block(0,1),new Block(1,1),new Block(0,0),new Block(1,0),new Block(0,-1)});
   
   //Q
@@ -49,24 +46,23 @@ public class Piece{
   allpieces.add(new Block[] {new Block(-2,0),new Block(-1,0),new Block(0,0),new Block(0,1),new Block(1,0)});
   //Z
   allpieces.add(new Block[] {new Block(-1,1),new Block(0,1),new Block(0,0),new Block(0,-1),new Block(1,-1)});
-     
+    
   
     
-    //shape = allpieces.get((int) (Math.random() * allpieces.size()));
-    shape = allpieces.get(allpieces.size() - 1);
+    shape = allpieces.get((int) (Math.random() * allpieces.size()));
+    //shape = allpieces.get(allpieces.size() - 1);
     for(Block part: shape){
       part.setColor(c);
      board.set(part.getROffset() + centerR, part.getCOffset() + centerC, part);
     }
 
   }
- 
 
   void removePieceFromBoard(Board board){
      for(Block part: shape){
 
        board.set(part.getROffset() + centerR, part.getCOffset() + centerC, null);
-     }
+    }
   }
 
   void addPieceToBoard(Board board){
@@ -74,13 +70,25 @@ public class Piece{
       board.set(part.getROffset() + centerR, part.getCOffset() + centerC,  part);
     }}
 
-  void dropOne(){
+  boolean dropOne(){
     if(canFit(board, centerR + 1, centerC)){
       removePieceFromBoard(board);
-    centerR++;
+      centerR++;
      addPieceToBoard(board);
-    }
+   return true;
+  }else{
+       for(Block part: shape){
+      part.setType("fallen");
   }
+      return false;  
+
+  }
+  }
+  
+  void quickDrop(){
+    while(dropOne()){};
+  }
+ 
 
   boolean rotate(){
    Block[] newRotation = new Block[shape.length];

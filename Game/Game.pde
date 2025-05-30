@@ -3,6 +3,7 @@ Board board;
 int score = 0;
 int ticks = 0;
 Piece current;
+boolean gameOver = false;
 void setup() {
   size(140*4,260*4);
   background(255);
@@ -14,18 +15,25 @@ void setup() {
 }
 
 void spawnPiece() {
+  for(int i = 2; i < board.getWidth() -2; i++){
+    if(!board.checkEmpty(5, i)){
+      gameOver = true;
+    }
+  }
 current = new Piece(board);
+
 }
 
 void tick() {
   //figure out dropping and insert
   board.render();
+  if(gameOver) {
+    return;
+  }
   if(!current.dropOne()){
     current = null;
   spawnPiece();}
-  if(endGame()) {
-    return;
-  }
+
   else {
     current.dropOne();
   }
@@ -41,6 +49,8 @@ void keyPressed(){
     current.moveLeft();
   }else if(key == 'd' || keyCode == RIGHT){
     current.moveRight();
+  }else if(key == ' ' || keyCode == RIGHT){
+    current.quickDrop();
   }
 
   board.render();

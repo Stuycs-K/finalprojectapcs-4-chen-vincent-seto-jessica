@@ -82,7 +82,22 @@ public class Piece{
 
   }
   }
+  void moveRight(){
+    if(canFit(board, centerR, centerC + 1)){
+      removePieceFromBoard(board);
+      centerC++;
+     addPieceToBoard(board);
+   } 
 
+  }
+  void moveLeft(){
+    if(canFit(board, centerR, centerC - 1)){
+      removePieceFromBoard(board);
+      centerC--;
+     addPieceToBoard(board);
+   } 
+
+  }
   void quickDrop(){
     while(dropOne()){};
   }

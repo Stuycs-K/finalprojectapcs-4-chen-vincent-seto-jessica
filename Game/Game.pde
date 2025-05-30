@@ -35,13 +35,16 @@ void tick() {
 
 void keyPressed(){
   if(key == 'r' || keyCode == UP){
-  current.rotate();}else if(key == 'd' || keyCode == DOWN){
+  current.rotate();}else if(key == 's' || keyCode == DOWN){
     current.dropOne();
+  }else if(key == 'a' || keyCode == LEFT){
+    current.moveLeft();
+  }else if(key == 'd' || keyCode == RIGHT){
+    current.moveRight();
   }
 
   board.render();
 }
-
 int score() {
   int finalSc = 0;
   for(int i = 2; i < 22; i++) {

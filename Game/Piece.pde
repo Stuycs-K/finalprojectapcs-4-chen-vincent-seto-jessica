@@ -8,12 +8,10 @@ public class Piece{
   Block[] shape;
 
  Piece(Board board){
-   this(5,6, board);
-
+    this(5, (int) (Math.random() * (board.getWidth() - 6)) + 3, board);
   }
 
   Piece(int centerR , int centerC, Board board){
-
     this.board = board;
     this.centerC = centerC;
     this.centerR = centerR;
@@ -49,8 +47,8 @@ public class Piece{
     
   
     
-    //shape = allpieces.get((int) (Math.random() * allpieces.size()));
-    shape = allpieces.get(allpieces.size() - 1);
+    shape = allpieces.get((int) (Math.random() * allpieces.size()));
+    //shape = allpieces.get(allpieces.size() - 1);
     for(Block part: shape){
       part.setColor(c);
      board.set(part.getROffset() + centerR, part.getCOffset() + centerC, part);
@@ -70,13 +68,25 @@ public class Piece{
       board.set(part.getROffset() + centerR, part.getCOffset() + centerC,  part);
     }}
 
-  void dropOne(){
+  boolean dropOne(){
     if(canFit(board, centerR + 1, centerC)){
       removePieceFromBoard(board);
-    centerR++;
+      centerR++;
      addPieceToBoard(board);
-    }
+   return true;
+  }else{
+       for(Block part: shape){
+      part.setType("fallen");
   }
+      return false;  
+
+  }
+  }
+  
+  void quickDrop(){
+    while(dropOne()){};
+  }
+ 
 
   boolean rotate(){
    Block[] newRotation = new Block[shape.length];

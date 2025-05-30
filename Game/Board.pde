@@ -6,6 +6,9 @@ public class Board{
   void set(int r, int c, Block toSet){
     board[r][c] = toSet;
   }
+  
+  int getWidth(){return bwidth;}
+  int getHeight(){return bheight;}//includes walls
 
   Board(){
     board = new Block[bheight][bwidth];

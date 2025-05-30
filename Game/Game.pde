@@ -21,7 +21,8 @@ void tick() {
   //figure out dropping and insert
   board.render();
   if(!current.dropOne()){
-    current = null;}
+    current = null;
+  spawnPiece();}
   if(endGame()) {
     return;
   }
@@ -82,10 +83,7 @@ boolean endGame() {
 }
 
 void draw() {
-  if (frameCount % 10 == 0 && !endGame()) {
-  board.render();
-  tick();
-  board.render();
+    tick();
   if(endGame()) {
     background(30);
     System.out.println("Game Over. Score: " + score);
@@ -96,6 +94,6 @@ void draw() {
 
 if(current == null) {
     spawnPiece();
-  }
+  
   }
 }

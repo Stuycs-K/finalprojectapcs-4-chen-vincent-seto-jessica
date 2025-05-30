@@ -1,6 +1,7 @@
 import java.util.Arrays;
 Board board;
 int score = 0;
+int ticks = 0;
 Piece current;
 void setup() {
   size(140*4,260*4);
@@ -18,24 +19,20 @@ current = new Piece(board);
 }
 
 void tick() {
-  board.render();
-  //figure out dropping and insert
-  board.render();
+  ticks++;
   if(endGame()) {
-    background(30);
-    System.out.println("Game Over. Score: " + score);
+    return;
   }
   else {
-    score += score();
+    current.dropOne();
   }
-  if(current == null) {
-    spawnPiece();
-  }
+
+  
 }
 
 void keyPressed(){
-  if(key == 'r'){
-  current.rotate();}else if(key == 'w'){
+  if(key == 'r' || keyCode == UP){
+  current.rotate();}else if(key == 'w' || keyCode == DOWN){
     current.dropOne();
   }
 
@@ -83,4 +80,20 @@ boolean endGame() {
 }
 
 void draw() {
+  if (frameCount % 10 == 0 && !endGame()) {
+  board.render();
+  tick();
+  board.render();
+  if(endGame()) {
+    background(30);
+    System.out.println("Game Over. Score: " + score);
+  }
+  else {
+    score += score();
+  }
+  
+if(current == null) {
+    spawnPiece();
+  }
+  }
 }

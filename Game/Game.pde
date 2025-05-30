@@ -10,8 +10,7 @@ void setup() {
   current = new Piece(board);
   board.render();
   score = 0; //reset score
-  //Block test = new Block( color(50), "a", new Piece());
-
+  frameRate(2);
 }
 
 void spawnPiece() {
@@ -19,7 +18,10 @@ current = new Piece(board);
 }
 
 void tick() {
-  ticks++;
+  //figure out dropping and insert
+  board.render();
+  if(!current.dropOne()){
+    current = null;}
   if(endGame()) {
     return;
   }
@@ -27,12 +29,12 @@ void tick() {
     current.dropOne();
   }
 
-  
+
 }
 
 void keyPressed(){
   if(key == 'r' || keyCode == UP){
-  current.rotate();}else if(key == 'w' || keyCode == DOWN){
+  current.rotate();}else if(key == 'd' || keyCode == DOWN){
     current.dropOne();
   }
 
@@ -91,7 +93,7 @@ void draw() {
   else {
     score += score();
   }
-  
+
 if(current == null) {
     spawnPiece();
   }

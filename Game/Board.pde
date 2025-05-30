@@ -7,26 +7,29 @@ public class Board{
     board[r][c] = toSet;
   }
 
+  int getWidth(){return bwidth;}
+  int getHeight(){return bheight;}//includes walls
+
   Board(){
     board = new Block[bheight][bwidth];
     //10x20 board, 2 x 2 border, bottom 2 for info
 
     for(int i = 0; i < 2; i++) {
      for(int j = 0; j < bwidth; j++) {
-      board[i][j] = new Block("wall");  
+      board[i][j] = new Block("wall");
     }
     }
-    
+
     for(int i = bheight - 2; i < bheight; i++) {
      for(int j = 0; j < bwidth; j++) {
-      board[i][j] = new Block("wall");  
+      board[i][j] = new Block("wall");
      }
     }
     //finish later
 
   for(int i = 0; i < bheight; i++) {
     for(int j = 0; j < 2; j++) {
-      board[i][j] = new Block("wall");  
+      board[i][j] = new Block("wall");
   }
 
 
@@ -34,7 +37,7 @@ public class Board{
   for(int i = 0; i < bheight; i++) {
 
     for(int j = 12; j < bwidth; j++) {
-      board[i][j] = new Block("wall");  
+      board[i][j] = new Block("wall");
   }
   }
     }

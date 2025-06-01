@@ -22,6 +22,13 @@ public class Block{
     this.c = color(0,0,83);
     this.type = "type";
   }
+  
+  
+  Block clone() {
+     Block b = new Block(this.col, this.row);
+     b.setColor(this.c);
+     return b;
+  }
 
  
 

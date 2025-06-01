@@ -1,3 +1,5 @@
+//note fix so shows next piece and score!!
+//@ start give option for a speed.
 public class Board{
   int bwidth = 14;
   int bheight = 26;

@@ -11,7 +11,6 @@ void setup() {
   current = new Piece(board);
   board.render();
   score = 0; //reset score
-  frameRate(2);
 }
 
 void spawnPiece() {
@@ -26,7 +25,6 @@ current = new Piece(board);
 
 void tick() {
   //figure out dropping and insert
-  board.render();
   if(gameOver) {
     return;
   }
@@ -96,7 +94,10 @@ boolean endGame() {
 }
 
 void draw() {
+  if(frameCount % 20 == 0){
     tick();
+    board.render();
+
   if(endGame()) {
     background(30);
     System.out.println("Game Over. Score: " + score);
@@ -109,4 +110,4 @@ if(current == null) {
     spawnPiece();
   
   }
-}
+}}

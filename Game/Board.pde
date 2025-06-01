@@ -49,11 +49,11 @@ public class Board{
      for(int j = 0; j < board[0].length; j++) {
 
        if(board[i][j] != null) {
-       fill(board[i][j].c);
+       fill(board[i][j].getColor());
 
        }else{
          fill(color(255));}
-       square(40*j,40*i,40);
+       square(35*j,35*i,35);
 
        }
 

@@ -84,22 +84,23 @@ int score() {
 
 
 
-boolean endGame() {
-  return gameOver;
+void endGame() {
+ background(30);
+ textSize(128);
+ fill(50, 168, 82);
+text("Score: " + score, 40, 120); 
+
 }
 
 void draw() {
-  if(frameCount % 20 == 0){
+   if(gameOver) {
+    endGame();
+  }
+  
+  if(frameCount % 20 == 0 && !gameOver){
     tick();
     board.render();
-
-  if(endGame()) {
-    background(30);
-    System.out.println("Game Over. Score: " + score);
-  }
-  else {
     score += score();
-  }
 
 if(current == null) {
     spawnPiece();

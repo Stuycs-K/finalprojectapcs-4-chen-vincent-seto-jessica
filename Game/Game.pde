@@ -1,8 +1,9 @@
-//fix scoring
 //note pls fix smooshing ty
 import java.util.Arrays;
 Board board;
-int score = 0;
+int dropScore = 0;
+int clearScore = 0;
+int pieceScore = 15;
 int ticks = 0;
 Piece current;
 boolean gameOver = false;
@@ -13,7 +14,8 @@ void setup() {
    board = new Board();
   current = new Piece(board);
   board.render();
-  score = 0; //reset score
+  dropScore = 0; //reset score
+  clearScore = 0;
 }
 
 void spawnPiece() {
@@ -40,26 +42,28 @@ void tick() {
   }
   if(!current.dropOne()){
     current = null;
-    score += score();
+    dropScore += 10;//per piece score bonus
+    pieceScore += 5;
+    clearScore += score();//line clear bonus
   spawnPiece();}
-
-
-
 }
 
 void keyPressed(){
   if(key == 'r' || keyCode == UP){
   current.rotate();
 board.render();}else if(key == 's' || keyCode == DOWN){
-    current.dropOne();
+    if(current.dropOne()) {
+      dropScore += 3;
+    }
   }else if(key == 'a' || keyCode == LEFT){
     current.moveLeft();
     board.render();
   }else if(key == 'd' || keyCode == RIGHT){
     current.moveRight();
     board.render();
-  }else if(key == ' ' || keyCode == RIGHT){
+  }else if(key == ' '){
     current.quickDrop();
+    dropScore += 20; //drop bonus
     board.render();
   }
 
@@ -67,6 +71,7 @@ board.render();}else if(key == 's' || keyCode == DOWN){
 }
 int score() {
   int finalSc = 0;
+  int totalClearr = 0;
   for(int i = 2; i <= 23; i++) {
    boolean rowCleared = true;
    for(int j = 2; j < 12; j++) {
@@ -76,7 +81,7 @@ int score() {
     }
    }
     if(rowCleared) {
-      finalSc += 500;
+      totalClearr++;
      for(int j = 2; j < 12; j++) {
       board.board[i][j] = null;
      }
@@ -90,7 +95,7 @@ int score() {
     }
 
    }
-   return finalSc; //figure out how to make a tetris?
+   return totalClearr*(totalClearr+1)*50; //figure out how to make a tetris?
   }
 
 
@@ -99,14 +104,17 @@ void endGame() {
  background(30);
  textSize(128);
  fill(50, 168, 82);
-text("Score: " + score, 40, 120); 
+text("Score: " + dropScore+clearScore+pieceScore, 40, 120); 
 
 }
 
 void draw() {
   if(gameOver) {
     endGame(); background(30);
-    System.out.println("Game Over. Score: " + score);
+    int total = dropScore + clearScore+pieceScore;
+    System.out.println("Game Over. Score: " + total+ "\n");
+    System.out.println("Stats/Subscores:\nDropping score: " + dropScore + "\nNumber of pieces dropped: " + 
+    pieceScore/15 + "\nRows Cleared Score: " + clearScore);
     noLoop();
     return;
   }

@@ -1,3 +1,5 @@
+//idea add coloring (e.g. pastel colors, r/g/b only, grayscale, etc.)
+
 public class Piece{
  //to be implemented later.
   ArrayList<Block[]> allpieces = new ArrayList<>(); //this should be static but the thing doesnt let me make it static
@@ -48,7 +50,14 @@ public class Piece{
 
 
 
-    shape = allpieces.get((int) (Math.random() * allpieces.size()));
+Block[] template = allpieces.get((int) (Math.random() * allpieces.size()));
+shape = new Block[template.length];
+for(int i = 0; i < template.length; i++) {
+  shape[i]=template[i].clone();
+  shape[i].setColor(c); 
+} //copy try debug:
+// jessica pls prevent the smooshing of pieces tysm :))
+
     //shape = allpieces.get(allpieces.size() - 1);
     for(Block part: shape){
       part.setColor(c);

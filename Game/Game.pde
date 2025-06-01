@@ -1,3 +1,5 @@
+//fix scoring
+//note pls fix smooshing ty
 import java.util.Arrays;
 Board board;
 int score = 0;
@@ -23,7 +25,7 @@ void spawnPiece() {
   //  }
   //}
   for(int i = 2; i < board.getWidth() -2; i++){
-    if(!board.checkEmpty(2, i)){
+    if(!board.checkEmpty(5, i)){
       gameOver = true;
     }
   }
@@ -41,9 +43,6 @@ void tick() {
     score += score();
   spawnPiece();}
 
-  else {
-    current.dropOne();
-  }
 
 
 }
@@ -105,12 +104,16 @@ text("Score: " + score, 40, 120);
 }
 
 void draw() {
+  if(gameOver) {
+    endGame(); background(30);
+    System.out.println("Game Over. Score: " + score);
+    noLoop();
+    return;
+  }
+    
   if(frameCount % 30 == 0){
+    tick();
     board.render();
 
-  if(endGame()) {
-    background(30);
-    System.out.println("Game Over. Score: " + score);
-  }
 
 }}

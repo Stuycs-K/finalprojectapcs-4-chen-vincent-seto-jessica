@@ -8,7 +8,8 @@ public class Piece{
   Block[] shape;
 
  Piece(Board board){
-    this(5, (int) (Math.random() * (board.getWidth() - 6)) + 3, board);
+    //this(5, (int) (Math.random() * (board.getWidth() - 6)) + 3, board);
+    this(5, board.getWidth()/2, board);
   }
 
   Piece(int centerR , int centerC, Board board){
@@ -17,7 +18,7 @@ public class Piece{
     this.centerR = centerR;
     this.c = color((int) ( 256 * Math.random()),(int) ( 256 * Math.random()),(int) ( 256 * Math.random())) ;
     //O
-    allpieces.add(new Block[] {new Block(0, 2), new  Block(0, 1), new Block(0, 0), new  Block(0, -1),new  Block(1, -1)});
+    allpieces.add(new Block[] {new Block(0, 2), new  Block(0, 1), new Block(0, 0), new  Block(0, -1),new  Block(0, -2)});
   //P
   allpieces.add(new Block[] {new Block(0,1),new Block(1,1),new Block(0,0),new Block(1,0),new Block(0,-1)});
 
@@ -82,7 +83,22 @@ public class Piece{
 
   }
   }
+  void moveRight(){
+    if(canFit(board, centerR, centerC + 1)){
+      removePieceFromBoard(board);
+      centerC++;
+     addPieceToBoard(board);
+   } 
 
+  }
+  void moveLeft(){
+    if(canFit(board, centerR, centerC - 1)){
+      removePieceFromBoard(board);
+      centerC--;
+     addPieceToBoard(board);
+   } 
+
+  }
   void quickDrop(){
     while(dropOne()){};
   }

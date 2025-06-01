@@ -1,12 +1,12 @@
 public class Board{
-  int bwidth = 14;
-  int bheight = 26;
+  int bwidth = 15;
+  int bheight = 30;
   Block[][] board;
   Piece currentFallingPiece;
   void set(int r, int c, Block toSet){
     board[r][c] = toSet;
   }
-
+  
   int getWidth(){return bwidth;}
   int getHeight(){return bheight;}//includes walls
 
@@ -16,28 +16,28 @@ public class Board{
 
     for(int i = 0; i < 2; i++) {
      for(int j = 0; j < bwidth; j++) {
-      board[i][j] = new Block("wall");
+      board[i][j] = new Block("wall");  
     }
     }
-
+    
     for(int i = bheight - 2; i < bheight; i++) {
      for(int j = 0; j < bwidth; j++) {
-      board[i][j] = new Block("wall");
+      board[i][j] = new Block("wall");  
      }
     }
     //finish later
 
   for(int i = 0; i < bheight; i++) {
     for(int j = 0; j < 2; j++) {
-      board[i][j] = new Block("wall");
+      board[i][j] = new Block("wall");  
   }
 
 
   }
   for(int i = 0; i < bheight; i++) {
-
-    for(int j = 12; j < bwidth; j++) {
-      board[i][j] = new Block("wall");
+  
+    for(int j = bwidth - 2; j < bwidth; j++) {
+      board[i][j] = new Block("wall");  
   }
   }
     }
@@ -49,11 +49,13 @@ public class Board{
      for(int j = 0; j < board[0].length; j++) {
 
        if(board[i][j] != null) {
-       fill(board[i][j].getColor());
+       fill(board[i][j].c);
 
        }else{
          fill(color(255));}
-       square(35*j,35*i,35);
+        
+        int squareSize = Math.min(width/bwidth, height/bheight);
+       square(squareSize*j,squareSize*i,squareSize);
 
        }
 

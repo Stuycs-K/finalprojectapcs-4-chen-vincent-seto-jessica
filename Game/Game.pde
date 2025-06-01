@@ -4,6 +4,7 @@ int score = 0;
 int ticks = 0;
 Piece current;
 boolean gameOver = false;
+
 void setup() {
   size(140*4,260*4);
   background(255);
@@ -84,13 +85,7 @@ int score() {
 
 
 boolean endGame() {
-  /*if() {
-   return true;
-  } //finish writing pieces and figure out
-  */
-  return false;
-
-
+  return gameOver;
 }
 
 void draw() {

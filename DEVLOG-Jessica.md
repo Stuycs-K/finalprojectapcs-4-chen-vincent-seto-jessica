@@ -24,3 +24,13 @@ Got single drop actually working, fixed the canFit to work properly, drafted Rot
 
 ### May 29th in class
 Made it so pieces got a random color, fixed rotate, and started adding the actual custom pieces
+
+### May 29th Homework
+Added quickdrop, and dropping during tick (very janky), and made a couple pieces
+
+### May 30th not in Class
+Started work on end condition, fixed pieces spawning in, and added left and right translations and keybinds to all currently implemented translations
+
+### May 30th Homework
+Made an end screen and end condition, and tried to determine the source of a bug where it will just flash columns colors on the screen towards the end of the game.
+

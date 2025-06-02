@@ -1,7 +1,10 @@
 import java.util.Arrays;
 Board board;
 int score = 0;
+int ticks = 0;
 Piece current;
+boolean gameOver = false;
+
 void setup() {
   size(140*4,260*4);
   background(255);
@@ -9,39 +12,48 @@ void setup() {
   current = new Piece(board);
   board.render();
   score = 0; //reset score
-  //Block test = new Block( color(50), "a", new Piece());
-
 }
 
 void spawnPiece() {
+  for(int i = 2; i < board.getWidth() -2; i++){
+    if(!board.checkEmpty(5, i)){
+      gameOver = true;
+    }
+  }
 current = new Piece(board);
+
 }
 
 void tick() {
-  board.render();
   //figure out dropping and insert
-  board.render();
-  if(endGame()) {
-    background(30);
-    System.out.println("Game Over. Score: " + score);
+  if(gameOver) {
+    return;
   }
-  else {
-    score += score();
-  }
-  if(current == null) {
-    spawnPiece();
-  }
-}
+  if(!current.dropOne()){
+    current = null;
+  spawnPiece();}
 
-void keyPressed(){
-  if(key == 'r'){
-  current.rotate();}else if(key == 'w'){
+  else {
     current.dropOne();
   }
 
-  board.render();
+
 }
 
+void keyPressed(){
+  if(key == 'r' || keyCode == UP){
+  current.rotate();}else if(key == 's' || keyCode == DOWN){
+    current.dropOne();
+  }else if(key == 'a' || keyCode == LEFT){
+    current.moveLeft();
+  }else if(key == 'd' || keyCode == RIGHT){
+    current.moveRight();
+  }else if(key == ' ' || keyCode == RIGHT){
+    current.quickDrop();
+  }
+
+  board.render();
+}
 int score() {
   int finalSc = 0;
   for(int i = 2; i < 22; i++) {
@@ -70,22 +82,28 @@ int score() {
    return finalSc; //figure out how to make a tetris?
   }
 
-    }
-
-   }
-   return finalSc; //figure out how to make a tetris?
-  }
 
 
-boolean endGame() {
-  /*if() {
-   return true;
-  } //finish writing pieces and figure out
-  */
-  return false;
-
+void endGame() {
+ background(30);
+ textSize(128);
+ fill(50, 168, 82);
+text("Score: " + score, 40, 120); 
 
 }
 
 void draw() {
-}
+   if(gameOver) {
+    endGame();
+  }
+  
+  if(frameCount % 20 == 0 && !gameOver){
+    tick();
+    board.render();
+    score += score();
+
+if(current == null) {
+    spawnPiece();
+  
+  }
+}}

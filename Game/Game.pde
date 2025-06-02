@@ -37,15 +37,17 @@ void spawnPiece() {
 
 void tick() {
   //figure out dropping and insert
+  print(board.board[2][board.getWidth()/2]);
   if(gameOver) {
     return;
   }
-  if(!current.dropOne()){
-    current = null;
-    dropScore += 10;//per piece score bonus
-    pieceScore += 5;
-    clearScore += score();//line clear bonus
-  spawnPiece();}
+  score();
+  //if(!current.dropOne()){
+  //  current = null;
+  //  dropScore += 10;//per piece score bonus
+  //  pieceScore += 5;
+  //  clearScore += score();//line clear bonus
+  //spawnPiece();}
 }
 
 void keyPressed(){
@@ -65,7 +67,7 @@ board.render();}else if(key == 's' || keyCode == DOWN){
     current.quickDrop();
     dropScore += 20; //drop bonus
     board.render();
-  }
+  }else if(key == 'y'){spawnPiece();}
 
   board.render();
 }
@@ -81,6 +83,7 @@ int score() {
     }
    }
     if(rowCleared) {
+      print("running this");
       totalClearr++;
      for(int j = 2; j < 12; j++) {
       board.board[i][j] = null;

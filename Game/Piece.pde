@@ -58,7 +58,6 @@ for(int i = 0; i < template.length; i++) {
 } //copy try debug:
 // jessica pls prevent the smooshing of pieces tysm :))
 
-    //shape = allpieces.get(allpieces.size() - 1);
     for(Block part: shape){
       part.setColor(c);
      board.set(part.getROffset() + centerR, part.getCOffset() + centerC, part);

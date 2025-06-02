@@ -21,3 +21,9 @@ Wrote score and started writing other Game class functions
 
 ### May 29th - Finishing Game Class
 Completed preliminary Game class, wrote in all functions and started helping write individual pieces/tetrominoes
+
+### May 30th - Creating MVP
+Completed all pieces and started writing in falling/rotation mechanics
+
+### June 1st - Finishing MVP
+Finished final documentation (including diagrams), fixed scoring and Game.pde to correctly move blocks w/ right timing, and added fixes to README/PROTOTYPE for the MVP.

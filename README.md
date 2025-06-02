@@ -1,8 +1,38 @@
 [![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/YxXKqIeT)
 # Project Description
 
-lorem ipsum.
+This project is a parody of the original Tetris, but with 5 pieces instead of 4 (which gives rise to many new game mechanics!).
+
+Our MVP features the following:
+
+- :white_check_mark: A 10x20 play grid surrounded by wall borders.
+- :white_check_mark: All 12 types of 5-square falling pieces (pentominoes), less their mirror images. 
+- :white_check_mark: Mechanics for moving left/right, soft drop, hard drop, and rotate.
+- :white_check_mark: A real-time game loop with falling blocks and collision detection.
+- :white_check_mark: Full line clear detection and removing of filled rows.
+- :white_check_mark: Score tracking based on # of rows cleared, pieces used, and drops.
+- :white_check_mark: Game-over detection.
+
+(note: we discovered a bug where sustained playing leads to a "smoosh" effect at the top of the screen when pieces drop, but this will be fixed.)
+
+Post-MVP, we'll try to incorporate the following:
+- Next piece preview.
+- Visible score on RHS.
+- Greater speed/difficulty options (slow, medium, fast).
+- Greater coloring options.
+- and more! (TBD)
+
 
 # Intended usage:
 
-A description as to how the project will be used (describe the user interface). (CHANGE THIS!!!!!)
+![PIECES DIAGRAM](pieces.jpeg?raw=true "Diagram of all pentomino pieces. Our implemented pieces may be different due to reflections for optimization." )
+
+- We will randomly drop one of 12 pentominoes (O,P,Q,R,S,T,U,V,W,X,Y,Z -- see attached diagram) and the player will have to arrange it in a way to clear as many rows as possible. 
+- We'll end the game when new blocks can no longer be spawned in. (e.g. it hits top of the board)
+- When rows are filled, the row will clear and all above placed blocks will move down accordingly.
+- To move blocks, use the following:
+  - 'a'/left key to move piece left
+  - 'd'/right key to move piece right
+  - 'w'/up key to rotate in a counterclockwise fashion
+  - 's'/down key to lower piece by one
+  - space key to quick drop to lowest position (e.g. can't be dropped further without collision)

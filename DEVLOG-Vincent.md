@@ -26,3 +26,4 @@ Completed preliminary Game class, wrote in all functions and started helping wri
 Completed all pieces and started writing in falling/rotation mechanics
 
 ### June 1st - Finishing MVP
+Finished final documentation (including diagrams), fixed scoring and Game.pde to correctly move blocks w/ right timing, and added fixes to README/PROTOTYPE for the MVP.

@@ -26,9 +26,11 @@ void spawnPiece() {
   //    return;
   //  }
   //}
+  int crossed = 0;
   for(int i = 2; i < board.getWidth() -2; i++){
-    if(!board.checkEmpty(5, i)){
+    if(!board.checkEmpty(2, i) || !board.checkEmpty(3, i)){
       gameOver = true;
+      break;
     }
   }
   current = newPiece;
@@ -102,15 +104,17 @@ int score() {
 
 void endGame() {
  background(30);
- textSize(128);
+ textSize(100);
  fill(50, 168, 82);
-text("Score: " + dropScore+clearScore+pieceScore, 40, 120); 
+ int total = dropScore+clearScore+pieceScore;
+text("Score: " + total, 20, 120); 
 
 }
 
 void draw() {
   if(gameOver) {
-    endGame(); background(30);
+    background(30);
+    endGame();
     int total = dropScore + clearScore+pieceScore;
     System.out.println("Game Over. Score: " + total+ "\n");
     System.out.println("Stats/Subscores:\nDropping score: " + dropScore + "\nNumber of pieces dropped: " + 

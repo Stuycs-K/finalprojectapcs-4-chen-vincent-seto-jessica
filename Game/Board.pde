@@ -64,6 +64,17 @@ public class Board{
     }
 }}
 
+Piece spawnPiece() {
+  Piece newPiece = new Piece(this);
+  for(int i = 2; i < getWidth() -2; i++){
+    if(!checkEmpty(5, i)){
+      return null;
+    }
+  }
+  return newPiece;
+}
+
+
 boolean checkEmpty(int r, int c){
 
   return (board[r][c] == null || board[r][c].getType().equals( "falling"));  //dont want falling pieces to stop themselves from falling

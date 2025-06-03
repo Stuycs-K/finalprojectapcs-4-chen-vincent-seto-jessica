@@ -11,7 +11,8 @@ boolean debug = true;
 boolean paused = false;
 
 void setup() {
-  size(14*35,26*35);
+  //size(14*35,26*35);
+  size(1000, 10000);
   background(255);
    board = new Board();
   current = new Piece(board);
@@ -20,17 +21,7 @@ void setup() {
   clearScore = 0;
 }
 
-void spawnPiece() {
-  Piece newPiece = new Piece(board);
-  for(int i = 2; i < board.getWidth() -2; i++){
-    if(!board.checkEmpty(5, i)){
-      gameOver = true;
-      break;
-    }
-  }
-  current = newPiece;
 
-}
 
 void tick() {
   //figure out dropping and insert
@@ -41,11 +32,14 @@ void tick() {
     score();
   }else{
   if(!current.dropOne()){
-    current = null;
     dropScore += 10;//per piece score bonus
     pieceScore += 5;
     clearScore += score();//line clear bonus
-  spawnPiece();}
+    current = board.spawnPiece();
+  if(current == null){
+  gameOver = true;}
+
+}
 }}
 
 void keyPressed(){
@@ -66,7 +60,7 @@ board.render();}else if(key == 's' || keyCode == DOWN){
     dropScore += 20; //drop bonus
     board.render();
   }else if(key == 'n' && paused){
-    spawnPiece();}
+    board.spawnPiece();}
     else if(key == 'o' && debug){
     print(current);
     }else if(key == 'p'){

@@ -47,20 +47,22 @@ public class Board{
 
   void render(){
     for(int i = 0; i < board.length; i++) {
-
      for(int j = 0; j < board[0].length; j++) {
-
+        if(j >= 2 && j <bwidth - 2 && i >= 2 && i < bheight - 2){
+        stroke(color(255, 255, 0));
+        }else{noStroke();}
        if(board[i][j] != null) {
-       fill(board[i][j].getColor());
-
+          //if(board[i][j].getType().equals("falling")){
+          //noStroke();}                   
+            fill(board[i][j].getColor());
        }else{
-         fill(color(255));}
-       square(35*j,35*i,35);
+         fill(color(0));
 
        }
+         square(35*j,35*i,35);
 
     }
-}
+}}
 
 boolean checkEmpty(int r, int c){
 

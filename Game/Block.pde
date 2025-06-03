@@ -20,7 +20,7 @@ public class Block{
   Block(String type){
 
     this.c = color(0,0,83);
-    this.type = "type";
+    this.type = type;
   }
   
   

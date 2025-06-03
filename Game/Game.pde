@@ -23,7 +23,7 @@ void setup() {
 void spawnPiece() {
   Piece newPiece = new Piece(board);
   for(int i = 2; i < board.getWidth() -2; i++){
-    if(!board.checkEmpty(2, i) || !board.checkEmpty(3, i)){
+    if(!board.checkEmpty(5, i)){
       gameOver = true;
       break;
     }
@@ -95,8 +95,6 @@ int score() {
       board.board[i][j] = null;
      }
      board.dropDown(i);
-
-
     }
 
    }

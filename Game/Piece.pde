@@ -10,7 +10,7 @@ public class Piece{
 
  Piece(Board board){
     //this(5, (int) (Math.random() * (board.getWidth() - 6)) + 3, board);
-    this(5, board.getWidth()/2, board);
+    this(4, board.getWidth()/2, board);
   }
   String toString(){
     return "Block at " + centerR + " , " + centerC + " With pices " + Arrays.toString(shape);
@@ -29,7 +29,6 @@ public class Piece{
   allpieces.add(new Block[] {new Block(0, 2), new  Block(0, 1), new Block(0, 0), new  Block(0, -1),new  Block(1, -1)});
 
   //R
-
   allpieces.add(new Block[] {new Block(0,1),new Block(1,1),new Block(0,0),new Block(-1,0),new Block(0,-1)});
 
   //S

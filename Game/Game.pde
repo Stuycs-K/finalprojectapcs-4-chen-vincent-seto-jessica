@@ -26,9 +26,11 @@ void spawnPiece() {
   //    return;
   //  }
   //}
+  int crossed = 0;
   for(int i = 2; i < board.getWidth() -2; i++){
-    if(!board.checkEmpty(5, i)){
+    if(!board.checkEmpty(2, i) || !board.checkEmpty(3, i)){
       gameOver = true;
+      break;
     }
   }
   current = newPiece;
@@ -37,17 +39,15 @@ void spawnPiece() {
 
 void tick() {
   //figure out dropping and insert
-  print(board.board[2][board.getWidth()/2]);
   if(gameOver) {
     return;
   }
-  score();
-  //if(!current.dropOne()){
-  //  current = null;
-  //  dropScore += 10;//per piece score bonus
-  //  pieceScore += 5;
-  //  clearScore += score();//line clear bonus
-  //spawnPiece();}
+  if(!current.dropOne()){
+    current = null;
+    dropScore += 10;//per piece score bonus
+    pieceScore += 5;
+    clearScore += score();//line clear bonus
+  spawnPiece();}
 }
 
 void keyPressed(){
@@ -67,7 +67,7 @@ board.render();}else if(key == 's' || keyCode == DOWN){
     current.quickDrop();
     dropScore += 20; //drop bonus
     board.render();
-  }else if(key == 'y'){spawnPiece();}
+  }
 
   board.render();
 }
@@ -83,7 +83,6 @@ int score() {
     }
    }
     if(rowCleared) {
-      print("running this");
       totalClearr++;
      for(int j = 2; j < 12; j++) {
       board.board[i][j] = null;
@@ -105,15 +104,17 @@ int score() {
 
 void endGame() {
  background(30);
- textSize(128);
+ textSize(100);
  fill(50, 168, 82);
-text("Score: " + dropScore+clearScore+pieceScore, 40, 120); 
+ int total = dropScore+clearScore+pieceScore;
+text("Score: " + total, 20, 120); 
 
 }
 
 void draw() {
   if(gameOver) {
-    endGame(); background(30);
+    background(30);
+    endGame();
     int total = dropScore + clearScore+pieceScore;
     System.out.println("Game Over. Score: " + total+ "\n");
     System.out.println("Stats/Subscores:\nDropping score: " + dropScore + "\nNumber of pieces dropped: " + 

@@ -67,7 +67,7 @@ boolean checkEmpty(int r, int c){
   return (board[r][c] == null || board[r][c].getType().equals( "falling"));  //dont want falling pieces to stop themselves from falling
 }
 void clearRow(int row) {
-    for(int j = row-1; j >= 2; j++) {
+    for(int j = row-1; j >= 5; j++) {
     for(int i = 2; i < 12; i++) {
       if(board[j][i].getType().equals("fallen")){
      board[j+1][i] = board[j][i];

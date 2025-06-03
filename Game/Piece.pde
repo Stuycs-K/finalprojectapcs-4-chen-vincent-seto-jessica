@@ -12,7 +12,9 @@ public class Piece{
     //this(5, (int) (Math.random() * (board.getWidth() - 6)) + 3, board);
     this(5, board.getWidth()/2, board);
   }
-
+  String toString(){
+    return "Block at " + centerR + " , " + centerC + " With pices " + Arrays.toString(shape);
+  }
   Piece(int centerR , int centerC, Board board){
     this.board = board;
     this.centerC = centerC;
@@ -109,7 +111,7 @@ shape = allpieces.get((int) (Math.random() * allpieces.size()));
    Block[] newRotation = new Block[shape.length];
    int i = 0;
   for(Block part: shape){
-    newRotation[i] = new Block(part.getROffset(), - 1 * part.getCOffset(), c); //becomes (y, -x) (-1, 2) should map to (2, 1)
+    newRotation[i] = new Block(part.getROffset(), - 1 * part.getCOffset(), c);
     i++;
   }
   if(canFit(board, centerR, centerC, newRotation)){

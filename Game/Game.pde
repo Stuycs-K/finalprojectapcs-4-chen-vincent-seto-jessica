@@ -7,6 +7,7 @@ int pieceScore = 15;
 int ticks = 0;
 Piece current;
 boolean gameOver = false;
+boolean debug = true;
 
 void setup() {
   size(14*35,26*35);
@@ -20,13 +21,6 @@ void setup() {
 
 void spawnPiece() {
   Piece newPiece = new Piece(board);
-  //for (int i = 0; i < 5; i++) {
-  //  if (!board.checkEmpty(newPiece.allpieces.get(i)[0].row, newPiece.allpieces.get(i)[0].col)) {
-  //    gameOver = true;
-  //    return;
-  //  }
-  //}
-  int crossed = 0;
   for(int i = 2; i < board.getWidth() -2; i++){
     if(!board.checkEmpty(2, i) || !board.checkEmpty(3, i)){
       gameOver = true;
@@ -42,13 +36,16 @@ void tick() {
   if(gameOver) {
     return;
   }
+  if(debug){
+    score();
+  }else{
   if(!current.dropOne()){
     current = null;
     dropScore += 10;//per piece score bonus
     pieceScore += 5;
     clearScore += score();//line clear bonus
   spawnPiece();}
-}
+}}
 
 void keyPressed(){
   if(key == 'r' || keyCode == UP){
@@ -67,10 +64,16 @@ board.render();}else if(key == 's' || keyCode == DOWN){
     current.quickDrop();
     dropScore += 20; //drop bonus
     board.render();
-  }
-
+  }else if(key == 'n' && debug){
+    spawnPiece();}else if(key == 'p' && debug){
+    print(current);
+    }
+ 
   board.render();
 }
+void mouseClicked(){
+  if(debug){print(board.board[(int) mouseY/35][(int) mouseX/35]);}}
+
 int score() {
   int finalSc = 0;
   int totalClearr = 0;
@@ -87,7 +90,7 @@ int score() {
      for(int j = 2; j < 12; j++) {
       board.board[i][j] = null;
      }
-      for(int k = i-1; k >=2; k--) {
+      for(int k = i-1; k >=3; k--) {
        board.board[k+1]=board.board[k];//check
      }
      for(int ii = 2; ii < 12; ii++) {

@@ -39,3 +39,6 @@ Tried to find source of a bug. was not successful.
 
 ### June 1 HW
 I think I was successful finding source of bug. Is in the score() and clearing row functionality. There is also duplicate clear row methods that needs to be dealt with tomorrow. Also added debug mode, where manually spawn/move pieces and can click on blocks to print debug info. (or press p to print info about current pice)
+
+### June 2 in class
+Got rid of second clear row and hyopefully fixed the bug that gave the vertical lines. Fixed the end condition, made some display color edits, and redid how pieces spawned in order to allow us to display the next few pieces

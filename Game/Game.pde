@@ -8,6 +8,7 @@ int ticks = 0;
 Piece current;
 boolean gameOver = false;
 boolean debug = true;
+boolean paused = false;
 
 void setup() {
   size(14*35,26*35);
@@ -36,7 +37,7 @@ void tick() {
   if(gameOver) {
     return;
   }
-  if(debug){
+  if(paused){
     score();
   }else{
   if(!current.dropOne()){
@@ -64,9 +65,12 @@ board.render();}else if(key == 's' || keyCode == DOWN){
     current.quickDrop();
     dropScore += 20; //drop bonus
     board.render();
-  }else if(key == 'n' && debug){
-    spawnPiece();}else if(key == 'p' && debug){
+  }else if(key == 'n' && paused){
+    spawnPiece();}
+    else if(key == 'o' && debug){
     print(current);
+    }else if(key == 'p'){
+      paused = !paused;
     }
  
   board.render();

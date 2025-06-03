@@ -54,7 +54,6 @@ shape = allpieces.get((int) (Math.random() * allpieces.size()));
 
     for(Block part: shape){
       part.setColor(c);
-     board.set(part.getROffset() + centerR, part.getCOffset() + centerC, part);
     }
 
   }

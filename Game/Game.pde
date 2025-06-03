@@ -36,6 +36,7 @@ void tick() {
     pieceScore += 5;
     clearScore += score();//line clear bonus
     current = board.spawnPiece();
+   
   if(current == null){
   gameOver = true;}
 

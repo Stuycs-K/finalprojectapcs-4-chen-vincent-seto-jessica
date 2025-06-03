@@ -1,20 +1,20 @@
-//note fix so shows next piece and score!!
-//@ start give option for a speed.
+import java.util.*;
+
 public class Board{
   int bwidth = 14;
   int bheight = 26;
   Block[][] board;
   Piece currentFallingPiece;
-  void set(int r, int c, Block toSet){
-    board[r][c] = toSet;
-  }
+  ArrayList<Piece> nextPieces = new ArrayList<Piece>(); 
 
-  int getWidth(){return bwidth;}
-  int getHeight(){return bheight;}//includes walls
+
 
   Board(){
     board = new Block[bheight][bwidth];
-    //10x20 board, 2 x 2 border, bottom 2 for info
+    //size 2 border
+    
+    for(int i = 0; i < 3; i++){
+      nextPieces.add(new Piece(this));}
 
     for(int i = 0; i < 2; i++) {
      for(int j = 0; j < bwidth; j++) {
@@ -33,7 +33,6 @@ public class Board{
     for(int j = 0; j < 2; j++) {
       board[i][j] = new Block("wall");
   }
-
 
   }
   for(int i = 0; i < bheight; i++) {
@@ -60,17 +59,21 @@ public class Board{
 
        }
          square(35*j,35*i,35);
-
-    }
-}}
-
+    }}}
+    
+  void set(int r, int c, Block toSet){board[r][c] = toSet;}
+  int getWidth(){return bwidth;}
+  int getHeight(){return bheight;}//includes walls
+  
 Piece spawnPiece() {
-  Piece newPiece = new Piece(this);
+  nextPieces.add(new Piece(this));
   for(int i = 2; i < getWidth() -2; i++){
     if(!checkEmpty(5, i)){
       return null;
     }
   }
+  Piece newPiece = nextPieces.remove(0);
+  newPiece.addPieceToBoard(this);
   return newPiece;
 }
 

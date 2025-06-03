@@ -10,7 +10,7 @@ public class Piece{
 
  Piece(Board board){
     //this(5, (int) (Math.random() * (board.getWidth() - 6)) + 3, board);
-    this(5, board.getWidth()/2, board);
+    this(4, board.getWidth()/2, board);
   }
 
   Piece(int centerR , int centerC, Board board){

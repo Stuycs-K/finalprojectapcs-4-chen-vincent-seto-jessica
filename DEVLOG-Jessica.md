@@ -34,3 +34,5 @@ Started work on end condition, fixed pieces spawning in, and added left and righ
 ### May 30th Homework
 Made an end screen and end condition, and tried to determine the source of a bug where it will just flash columns colors on the screen towards the end of the game.
 
+### June 1 class
+Tried to find source of a bug. was not successful.

@@ -90,12 +90,8 @@ int score() {
      for(int j = 2; j < 12; j++) {
       board.board[i][j] = null;
      }
-      for(int k = i-1; k >=3; k--) {
-       board.board[k+1]=board.board[k];//check
-     }
-     for(int ii = 2; ii < 12; ii++) {
-      board.board[2][ii] = null;
-     }
+     board.dropDown(i);
+
 
     }
 

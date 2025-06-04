@@ -19,6 +19,8 @@ void setup() {
   board.render();
   dropScore = 0; //reset score
   clearScore = 0;
+  textSize(30);
+  text("Next pieces", 510, 40);
 }
 
 
@@ -42,6 +44,13 @@ void tick() {
 
 }
 }}
+void renderPiece(Piece toRender, int topX, int topY, int size){
+  //Renders it in a 5x5 grid from topX to topY of size size
+  for(Block part: toRender.shape){
+    fill(part.c);
+      square(topX + size * (part.getCOffset() + 2), topY + size * (part.getROffset() +2), size);
+  }
+}
 
 void keyPressed(){
   if(key == 'r' || keyCode == UP){
@@ -91,7 +100,6 @@ int score() {
      }
      board.dropDown(i);
     }
-
    }
    return totalClearr*(totalClearr+1)*50; //figure out how to make a tetris?
   }
@@ -122,6 +130,7 @@ void draw() {
   if(frameCount % 30 == 0){
     tick();
     board.render();
+    renderPiece(current, 510, 60, 35);
 
 
 }}

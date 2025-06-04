@@ -7,12 +7,9 @@ public class Board{
   Piece currentFallingPiece;
   ArrayList<Piece> nextPieces = new ArrayList<Piece>(); 
 
-
-
   Board(){
     board = new Block[bheight][bwidth];
-    //size 2 border
-    
+ 
     for(int i = 0; i < 3; i++){
       nextPieces.add(new Piece(this));}
 
@@ -64,7 +61,7 @@ public class Board{
   void set(int r, int c, Block toSet){board[r][c] = toSet;}
   int getWidth(){return bwidth;}
   int getHeight(){return bheight;}//includes walls
-  
+  ArrayList<Piece> getNextPieces(){return nextPieces;}
 Piece spawnPiece() {
   nextPieces.add(new Piece(this));
   for(int i = 2; i < getWidth() -2; i++){

@@ -42,6 +42,11 @@ public class Board{
 
 
   void render(){
+    fill(200,0,0);
+    for(int i = 2; i < 4; i++) {
+     for(int j = 2; j < board[0].length-2; j++) {
+       square(35*j,35*i,35);
+     }}
     for(int i = 0; i < board.length; i++) {
      for(int j = 0; j < board[0].length; j++) {
         if(j >= 2 && j <bwidth - 2 && i >= 2 && i < bheight - 2){
@@ -51,12 +56,16 @@ public class Board{
           //if(board[i][j].getType().equals("falling")){
           //noStroke();}                   
             fill(board[i][j].getColor());
-       }else{
+       }else if(i!= 4){
          fill(color(0));
-
+       }
+       else if((i==4) && j >= 2 && j < board[0].length-2) {
+         fill(200,0,0);
        }
          square(35*j,35*i,35);
-    }}}
+    }}
+  
+}
     
   void set(int r, int c, Block toSet){board[r][c] = toSet;}
   int getWidth(){return bwidth;}
@@ -65,7 +74,7 @@ public class Board{
 Piece spawnPiece() {
   nextPieces.add(new Piece(this));
   for(int i = 2; i < getWidth() -2; i++){
-    if(!checkEmpty(5, i)){
+    if(!checkEmpty(4, i)){
       return null;
     }
   }

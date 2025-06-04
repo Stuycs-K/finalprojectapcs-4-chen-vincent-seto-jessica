@@ -51,11 +51,14 @@ public class Board{
           //if(board[i][j].getType().equals("falling")){
           //noStroke();}                   
             fill(board[i][j].getColor());
+             square(35*j,35*i,35);
+             if(board[i][j].getImage() != null){
+            image(board[i][j].getImage(), 35*j, 35*i, 35, 35);}
        }else{
          fill(color(0));
+         square(35*j,35*i,35);
 
        }
-         square(35*j,35*i,35);
     }}}
     
   void set(int r, int c, Block toSet){board[r][c] = toSet;}

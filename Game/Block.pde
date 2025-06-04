@@ -4,6 +4,7 @@ public class Block{
    int col;
   int row; //x's and ys relative to center.
   String type;
+  PImage image;
 
 
   Block(int col, int row){
@@ -14,6 +15,7 @@ public class Block{
        int powerUp = (int) (Math.random() * 2);
        if(powerUp == 0){
          powerup = "freeze";
+         image = loadImage("snowflake.jpg");
     }else if(powerUp == 1){
       powerup = "score";}
   }}
@@ -23,7 +25,8 @@ public class Block{
     this.c = c;
   }
   
-  
+ 
+ PImage getImage(){return image;}
   Block(String type){
 
     this.c = color(0,0,83);

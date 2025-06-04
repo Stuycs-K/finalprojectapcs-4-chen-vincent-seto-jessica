@@ -21,7 +21,6 @@ void setup() {
   dropScore = 0; //reset score
   clearScore = 0;
   textSize(30);
-  text("Next pieces", 510, 40);
 }
 
 
@@ -144,5 +143,6 @@ void draw() {
      fill(66, 135, 200);
      totalScore = dropScore + clearScore + pieceScore;
     text("Score: " + totalScore, 695, 120);
+    fill(200,0,0);
     }
 }

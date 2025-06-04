@@ -27,3 +27,9 @@ Completed all pieces and started writing in falling/rotation mechanics
 
 ### June 1st - Finishing MVP
 Finished final documentation (including diagrams), fixed scoring and Game.pde to correctly move blocks w/ right timing, and added fixes to README/PROTOTYPE for the MVP.
+
+### June 2nd - Debugging
+Helped Jessica debug issues with smooshing on the board, playtested to ensure all functions working.
+
+### June 4th - Add-Ons
+Added red line to highlight where game ends, and added all mirror images for nonsymmetric pieces to ensure all pentominoes covered.

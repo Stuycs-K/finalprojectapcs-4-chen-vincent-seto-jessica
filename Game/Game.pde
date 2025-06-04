@@ -5,6 +5,7 @@ int dropScore = 0;
 int clearScore = 0;
 int pieceScore = 15;
 int ticks = 0;
+int totalScore = dropScore + clearScore + pieceScore;
 Piece current;
 boolean gameOver = false;
 boolean debug = true;
@@ -13,7 +14,7 @@ boolean paused = false;
 void setup() {
   //size(14*35,26*35);
   size(1000, 10000);
-  background(255);
+  background(200);
    board = new Board();
   current = new Piece(board);
   board.render();
@@ -51,6 +52,14 @@ for(Block part : toRender.shape){
       square(topX + size * (part.getCOffset() + 2), topY + size * (part.getROffset() +2), size);
   }
 }
+void renderNextPieces(){    fill(200);
+    square(510, 60, 5000);
+    for(int i =0; i < board.nextPieces.size(); i++){
+     stroke(0);
+     fill(0);
+     square(510, 60 + (35 * 5 + 10) * i, 35 * 5);
+      noStroke();
+    renderPiece(board.nextPieces.get(i), 510, 60 + (35 * 5 + 10) * i, 35);}}
 
 void keyPressed(){
   if(key == 'r' || keyCode == UP){
@@ -110,8 +119,7 @@ void endGame() {
  background(30);
  textSize(100);
  fill(50, 168, 82);
- int total = dropScore+clearScore+pieceScore;
-text("Score: " + total, 20, 120); 
+text("Score: " + totalScore, 20, 120); 
 
 }
 
@@ -119,24 +127,22 @@ void draw() {
   if(gameOver) {
     background(30);
     endGame();
-    int total = dropScore + clearScore+pieceScore;
-    System.out.println("Game Over. Score: " + total+ "\n");
+    System.out.println("Game Over. Score: " + totalScore+ "\n");
     System.out.println("Stats/Subscores:\nDropping score: " + dropScore + "\nNumber of pieces dropped: " + 
     pieceScore/15 + "\nRows Cleared Score: " + clearScore);
     noLoop();
     return;
   }
-    
+ 
   if(frameCount % 30 == 0){
+
     tick();
     board.render();
-    fill(255);
-    square(510, 60, 5000);
-    for(int i =0; i < board.nextPieces.size(); i++){
-     stroke(0);
-     fill(255);
-     square(510, 60 + (35 * 5 + 10) * i, 35 * 5);
-      noStroke();
-    renderPiece(board.nextPieces.get(i), 510, 60 + (35 * 5 + 10) * i, 35);
+
+    renderNextPieces();
+         textSize(50);
+     fill(66, 135, 200);
+     totalScore = dropScore + clearScore + pieceScore;
+    text("Score: " + totalScore, 695, 120);
     }
-}}
+}

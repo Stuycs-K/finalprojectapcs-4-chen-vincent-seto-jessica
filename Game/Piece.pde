@@ -19,7 +19,7 @@ public class Piece{
     this.board = board;
     this.centerC = centerC;
     this.centerR = centerR;
-    this.c = color((int) ( 256 * Math.random()),(int) ( 256 * Math.random()),(int) ( 256 * Math.random())) ;
+    this.c = color((int) ( 100 + 156 * Math.random()),(int) ( 100 + 156 * Math.random()),(int) ( 100 + 156 * Math.random())) ;
     //O
     allpieces.add(new Block[] {new Block(2, 0), new  Block(1, 0), new Block(-1, 0), new  Block(0, 0),new  Block(-2, 0)});
   //P

@@ -6,7 +6,7 @@ public class Board{
   Block[][] board;
   Piece currentFallingPiece;
   ArrayList<Piece> nextPieces = new ArrayList<Piece>(); 
-
+  
   Board(){
     board = new Block[bheight][bwidth];
  

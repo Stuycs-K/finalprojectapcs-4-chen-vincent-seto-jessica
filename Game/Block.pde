@@ -1,5 +1,5 @@
 public class Block{
-
+  String powerup = "none"; //Freeze pauses the game, Score buffs the score, 
   color c = 0;
    int col;
   int row; //x's and ys relative to center.
@@ -10,7 +10,14 @@ public class Block{
     this.col = col;
     this.row = row;
     this.type = "falling";
-  }
+    if(Math.random() < 1){ //gives a 5% chance to spawn w/ a powerup
+       int powerUp = (int) (Math.random() * 2);
+       if(powerUp == 0){
+         powerup = "freeze";
+    }else if(powerUp == 1){
+      powerup = "score";}
+  }}
+  
   Block(int col, int row, int c){
     this(col, row);
     this.c = c;
@@ -31,7 +38,7 @@ public class Block{
   }
 
  
-
+  public String getPower(){return this.powerup;}
   public int getCOffset(){return this.col;}
   public int getROffset(){return this.row;}
 

@@ -1,15 +1,21 @@
 //note pls fix smooshing ty
 import java.util.Arrays;
 Board board;
-int dropScore = 0;
-int clearScore = 0;
-int pieceScore = 15;
-int ticks = 0;
-int totalScore = dropScore + clearScore + pieceScore;
+
 Piece current;
 boolean gameOver = false;
 boolean debug = true;
-boolean paused = false;
+
+//scoring
+int dropScore = 0;
+int clearScore = 0;
+int pieceScore = 15;
+int totalScore = dropScore + clearScore + pieceScore;
+
+//powerups
+boolean frozen = false;
+int frozenTimer = 0;
+int scoreMultiplier = 1;
 
 void setup() {
   //size(14*35,26*35);
@@ -27,11 +33,10 @@ void setup() {
 
 
 void tick() {
-  //figure out dropping and insert
   if(gameOver) {
     return;
   }
-  if(paused){
+  if(frozen){
     score();
   }else{
   if(!current.dropOne()){
@@ -79,12 +84,12 @@ board.render();}else if(key == 's' || keyCode == DOWN){
     current.quickDrop();
     dropScore += 20; //drop bonus
     board.render();
-  }else if(key == 'n' && paused){
+  }else if(key == 'n' && debug){
     board.spawnPiece();}
     else if(key == 'o' && debug){
     print(current);
-    }else if(key == 'p'){
-      paused = !paused;
+    }else if(key == 'p' && debug){
+      frozen = !frozen;
     }
  
   board.render();
@@ -106,6 +111,11 @@ int score() {
     if(rowCleared) {
       totalClearr++;
      for(int j = 2; j < 12; j++) {
+       if(board.board[i][j].getPower().equals("freeze")){
+         print("freezing");
+         frozen = true;
+         frozenTimer = frameCount;  
+     }
       board.board[i][j] = null;
      }
      board.dropDown(i);
@@ -124,6 +134,10 @@ text("Score: " + totalScore, 20, 120);
 
 }
 
+void removePowerUps(){
+  if(frozen && frameCount - frozenTimer > 60 * 5){
+    frozen = false;}}
+
 void draw() {
   if(gameOver) {
     background(30);
@@ -139,9 +153,9 @@ void draw() {
 
     tick();
     board.render();
-
+    removePowerUps();
     renderNextPieces();
-         textSize(50);
+    textSize(50);
      fill(66, 135, 200);
      totalScore = dropScore + clearScore + pieceScore;
     text("Score: " + totalScore, 695, 120);

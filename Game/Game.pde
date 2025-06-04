@@ -61,7 +61,7 @@ void renderNextPieces(){    fill(200);
     renderPiece(board.nextPieces.get(i), 510, 60 + (35 * 5 + 10) * i, 35);}}
 
 void keyPressed(){
-  if(key == 'r' || keyCode == UP){
+  if(key == 'r' || key == 'w' || keyCode == UP){
   current.rotate();
 board.render();}else if(key == 's' || keyCode == DOWN){
     if(current.dropOne()) {

@@ -109,7 +109,7 @@ shape = allpieces.get((int) (Math.random() * allpieces.size()));
    Block[] newRotation = new Block[shape.length];
    int i = 0;
   for(Block part: shape){
-    newRotation[i] = new Block(part.getROffset(), - 1 * part.getCOffset(), c);
+    newRotation[i] = new Block(part.getROffset(), - 1 * part.getCOffset(), c, part.powerup);
     i++;
   }
   if(canFit(board, centerR, centerC, newRotation)){

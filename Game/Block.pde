@@ -20,9 +20,15 @@ public class Block{
       powerup = "score";}
   }}
   
-  Block(int col, int row, int c){
+  Block(int col, int row, int c, String powerUp){
     this(col, row);
     this.c = c;
+    this.powerup = "none";
+    this.image = null;
+    this.powerup = powerUp;
+    if(powerup.equals("freeze")){
+           image = loadImage("snowflake.jpg");}
+
   }
   
  

@@ -20,7 +20,7 @@ public class Block{
   Block(String type){
 
     this.c = color(0,0,83);
-    this.type = "type";
+    this.type = type;
   }
   
   
@@ -36,7 +36,7 @@ public class Block{
   public int getROffset(){return this.row;}
 
   public String toString(){
-    return "Block of type " + type + " and color " + c + " row " + row + " column " + col;
+    return "type " + type + " color " + c + " row " + row + " column " + col;
   }
   public String getType(){return type;}
   public void setType(String newType){

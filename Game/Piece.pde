@@ -11,8 +11,8 @@ public class Piece{
  Piece(Board board){
     //this(5, (int) (Math.random() * (board.getWidth() - 6)) + 3, board);
     this(4, board.getWidth()/2, board);
-  }
 
+  }
   Piece(int centerR , int centerC, Board board){
     this.board = board;
     this.centerC = centerC;
@@ -27,7 +27,6 @@ public class Piece{
   allpieces.add(new Block[] {new Block(0, 2), new  Block(0, 1), new Block(0, 0), new  Block(0, -1),new  Block(1, -1)});
 
   //R
-
   allpieces.add(new Block[] {new Block(0,1),new Block(1,1),new Block(0,0),new Block(-1,0),new Block(0,-1)});
 
   //S
@@ -53,7 +52,6 @@ shape = allpieces.get((int) (Math.random() * allpieces.size()));
 
     for(Block part: shape){
       part.setColor(c);
-     board.set(part.getROffset() + centerR, part.getCOffset() + centerC, part);
     }
 
   }
@@ -109,7 +107,7 @@ shape = allpieces.get((int) (Math.random() * allpieces.size()));
    Block[] newRotation = new Block[shape.length];
    int i = 0;
   for(Block part: shape){
-    newRotation[i] = new Block(part.getROffset(), - 1 * part.getCOffset(), c); //becomes (y, -x) (-1, 2) should map to (2, 1)
+    newRotation[i] = new Block(part.getROffset(), - 1 * part.getCOffset(), c);
     i++;
   }
   if(canFit(board, centerR, centerC, newRotation)){

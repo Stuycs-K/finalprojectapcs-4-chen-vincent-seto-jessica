@@ -11,13 +11,15 @@ public class Block{
     this.col = col;
     this.row = row;
     this.type = "falling";
-    if(Math.random() < 1){ //gives a 5% chance to spawn w/ a powerup
+    if(Math.random() < 0.05){ //gives a 5% chance to spawn w/ a powerup
        int powerUp = (int) (Math.random() * 2);
        if(powerUp == 0){
          powerup = "freeze";
          image = loadImage("snowflake.jpg");
     }else if(powerUp == 1){
-      powerup = "score";}
+      powerup = "score";
+      image = loadImage("scoreboost.jpeg");  
+  }
   }}
   
   Block(int col, int row, int c, String powerUp){
@@ -27,9 +29,9 @@ public class Block{
     this.image = null;
     this.powerup = powerUp;
     if(powerup.equals("freeze")){
-           image = loadImage("snowflake.jpg");}
-
-  }
+           image = loadImage("snowflake.jpg");
+  }else if(powerup.equals("score")){
+    image = loadImage("scoreboost.jpeg");}}
   
  
  PImage getImage(){return image;}

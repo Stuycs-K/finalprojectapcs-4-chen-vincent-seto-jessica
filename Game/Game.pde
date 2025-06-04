@@ -59,6 +59,9 @@ void renderPiece(Piece toRender, int topX, int topY, int size){
 for(Block part : toRender.shape){
     fill(part.c);
       square(topX + size * (part.getCOffset() + 3), topY + size * (part.getROffset() +3), size);
+      if(part.getImage()!= null){
+      image(part.getImage(), topX + size * (part.getCOffset() + 3), topY + size * (part.getROffset() +3), size, size);}
+
   }
 }
 void renderNextPieces(){    fill(200);

@@ -46,7 +46,7 @@ void tick() {
 }}
 void renderPiece(Piece toRender, int topX, int topY, int size){
   //Renders it in a 5x5 grid from topX to topY of size size
-  for(Block part: toRender.shape){
+for(Block part : toRender.shape){
     fill(part.c);
       square(topX + size * (part.getCOffset() + 2), topY + size * (part.getROffset() +2), size);
   }
@@ -130,7 +130,13 @@ void draw() {
   if(frameCount % 30 == 0){
     tick();
     board.render();
-    renderPiece(current, 510, 60, 35);
-
-
+    fill(255);
+    square(510, 60, 5000);
+    for(int i =0; i < board.nextPieces.size(); i++){
+     stroke(0);
+     fill(255);
+     square(510, 60 + (35 * 5 + 10) * i, 35 * 5);
+      noStroke();
+    renderPiece(board.nextPieces.get(i), 510, 60 + (35 * 5 + 10) * i, 35);
+    }
 }}

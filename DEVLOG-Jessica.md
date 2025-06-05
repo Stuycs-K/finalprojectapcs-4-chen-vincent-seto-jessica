@@ -44,4 +44,7 @@ I think I was successful finding source of bug. Is in the score() and clearing r
 Got rid of second clear row and hyopefully fixed the bug that gave the vertical lines. Fixed the end condition, made some display color edits, and redid how pieces spawned in order to allow us to display the next few pieces
 
 ### June 2 HW
-Made it show the next couple pieces and made the score show up. 
+Made it show the next couple pieces and the score show up. 
+
+### June 3 in class
+Added powerups -- Icons for freeze and score bonus and effects for freeze

@@ -18,6 +18,7 @@ boolean frozen = false;
 int frozenTimer = 0;
 int scoreMultiplier = 1;
 int scoreMultTimer = 0;
+int stashesLeft = 2;
 
 void setup() {
   size(1000, 10000);
@@ -69,7 +70,7 @@ void renderNextPieces(){
     renderPiece(board.nextPieces.get(i), 510, 60 + (size * 7 + 10) * i, size);}
      
      fill(255);
-     text("Stashed piece", 510, 60 + (size * 7 + 10) * 3 + 50);
+     text("Stashed piece with " + stashesLeft + " uses of stash left", 510, 60 + (size * 7 + 10) * 3 + 50);
      renderPiece(swapOut, 510, 60 + (size * 7 + 10) * 3 + 100, size);
 }
 
@@ -97,14 +98,15 @@ board.render();}else if(key == 's' || keyCode == DOWN){
     }else if(key == 'p' && debug){
       frozen = !frozen;
     }else if(key =='q'){
-    if(swapOut == null && board.nextPieces.get(0).canFit(board, current.getR(), current.getC())){
+    if(swapOut == null && stashesLeft > 0 && board.nextPieces.get(0).canFit(board, current.getR(), current.getC())){
         swapOut = current;
         current.removePieceFromBoard(board);
         int newR = current.getR();
         int newC = current.getC();
         current = board.spawnPiece(); 
         current.teleport(newR, newC);
-    }else if(swapOut.canFit(board, current.getR(), current.getC())){
+        stashesLeft--;
+    }else if (stashesLeft > 0 && swapOut.canFit(board, current.getR(), current.getC())){
           current.removePieceFromBoard(board);
           int newR = current.getR();
           int newC = current.getC();
@@ -112,6 +114,8 @@ board.render();}else if(key == 's' || keyCode == DOWN){
           swapOut = current;
           current = temp;
           current.teleport(newR, newC);
+          stashesLeft--;
+
         }
 
       }

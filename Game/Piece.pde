@@ -70,8 +70,11 @@ shape = allpieces.get((int) (Math.random() * allpieces.size()));
   }
   
   void teleport(int r, int c){
+    removePieceFromBoard(board);
     centerR = r;
-    centerC = c;}
+    centerC = c;
+     addPieceToBoard(board);
+}
   void removePieceFromBoard(Board board){
      for(Block part: shape){
 

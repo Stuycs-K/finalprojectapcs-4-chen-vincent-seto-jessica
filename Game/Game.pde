@@ -90,12 +90,14 @@ board.render();}else if(key == 's' || keyCode == DOWN){
     }else if(key == 'p' && debug){
       frozen = !frozen;
     }else if(key =='q'){
-      if(swapOut == null){
+    if(swapOut == null && board.nextPieces.get(0).canFit(board, current.getR(), current.getC())){
         swapOut = current;
         current.removePieceFromBoard(board);
-        current = board.spawnPiece();
-      }else{
-        if(swapOut.canFit(board, current.getR(), current.getC())){
+        int newR = current.getR();
+        int newC = current.getC();
+        current = board.spawnPiece(); 
+        current.teleport(newR, newC);
+    }else if(swapOut.canFit(board, current.getR(), current.getC())){
           current.removePieceFromBoard(board);
           int newR = current.getR();
           int newC = current.getC();
@@ -103,11 +105,10 @@ board.render();}else if(key == 's' || keyCode == DOWN){
           swapOut = current;
           current = temp;
           current.teleport(newR, newC);
-          current.addPieceToBoard(board);
         }
+
       }
-    }
- 
+    
   board.render();
 }
 void mouseClicked(){

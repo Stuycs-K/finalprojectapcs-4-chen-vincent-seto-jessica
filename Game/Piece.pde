@@ -22,15 +22,24 @@ public class Piece{
     allpieces.add(new Block[] {new Block(2, 0), new  Block(1, 0), new Block(-1, 0), new  Block(0, 0),new  Block(-2, 0)});
   //P
   allpieces.add(new Block[] {new Block(0,1),new Block(1,1),new Block(0,0),new Block(1,0),new Block(0,-1)});
+//P
+  allpieces.add(new Block[] {new Block(0,1),new Block(-1,1),new Block(0,0),new Block(-1,0),new Block(0,-1)});
 
   //Q
   allpieces.add(new Block[] {new Block(0, 2), new  Block(0, 1), new Block(0, 0), new  Block(0, -1),new  Block(1, -1)});
+  //Q'
+  allpieces.add(new Block[] {new Block(0, 2), new  Block(0, 1), new Block(0, 0), new  Block(0, -1),new  Block(-1, -1)});
 
   //R
   allpieces.add(new Block[] {new Block(0,1),new Block(1,1),new Block(0,0),new Block(-1,0),new Block(0,-1)});
-
+  //R'
+  allpieces.add(new Block[] {new Block(0,1),new Block(-1,1),new Block(0,0),new Block(1,0),new Block(0,-1)});
+  
   //S
   allpieces.add(new Block[] {new Block(-2,0),new Block(-1,0),new Block(0,0),new Block(0,1),new Block(1,1)});
+  //S'
+  allpieces.add(new Block[] {new Block(2,0),new Block(1,0),new Block(0,0),new Block(0,1),new Block(-1,1)});
+  
   //T
   allpieces.add(new Block[] {new Block(-1, 1), new  Block(1, 1), new Block(0, 1), new  Block(0, -1),new  Block(0, 0)});
   //U
@@ -46,6 +55,10 @@ public class Piece{
   //Z
   allpieces.add(new Block[] {new Block(-1,1),new Block(0,1),new Block(0,0),new Block(0,-1),new Block(1,-1)});
 
+//Y'
+  allpieces.add(new Block[] {new Block(2,0),new Block(1,0),new Block(0,0),new Block(0,1),new Block(-1,0)});
+  //Z'
+  allpieces.add(new Block[] {new Block(1,1),new Block(0,1),new Block(0,0),new Block(0,-1),new Block(-1,-1)});
 
 
 shape = allpieces.get((int) (Math.random() * allpieces.size()));

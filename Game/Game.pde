@@ -27,7 +27,6 @@ void setup() {
   dropScore = 0; //reset score
   clearScore = 0;
   textSize(30);
-  text("Next pieces", 510, 40);
 }
 
 void tick() {
@@ -67,7 +66,7 @@ void renderNextPieces(){
     renderPiece(board.nextPieces.get(i), 510, 60 + (size * 7 + 10) * i, size);}}
 
 void keyPressed(){
-  if(key == 'r' || keyCode == UP){
+  if(key == 'r' || key == 'w' || keyCode == UP){
   current.rotate();
 board.render();}else if(key == 's' || keyCode == DOWN){
     if(current.dropOne()) {
@@ -165,6 +164,7 @@ void draw() {
      fill(66, 135, 200);
      totalScore = dropScore + clearScore + pieceScore;
     text("Score: " + totalScore, 695, 120);
+ 
       textSize(30);
 
     if(frozen){
@@ -173,5 +173,6 @@ void draw() {
     if(scoreMultiplier > 1){
         text("3x score for " + (60. * 5 - (frameCount - scoreMultTimer))/60 + " seconds", 695, 240);
     }
-    }
+    fill(200,0,0);
+     }
 }

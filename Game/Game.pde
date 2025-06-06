@@ -16,9 +16,9 @@ int totalScore = dropScore + clearScore + pieceScore;
 boolean frozen = false;
 int frozenTimer = 0;
 int scoreMultiplier = 1;
+int scoreMultTimer = 0;
 
 void setup() {
-  //size(14*35,26*35);
   size(1000, 10000);
   background(200);
    board = new Board();
@@ -30,12 +30,9 @@ void setup() {
   text("Next pieces", 510, 40);
 }
 
-
-
 void tick() {
-
   if(current.turnFallen()){
-    dropScore += 10;//per piece score bonus
+    dropScore += 10 * scoreMultiplier;//per piece score bonus
     clearScore += score();//line clear bonus
     current = board.spawnPiece();
   }
@@ -45,10 +42,7 @@ void tick() {
   if(!frozen){
     current.dropOne();
   }
-    pieceScore += 5;
-
-  
-
+    pieceScore += 5 * scoreMultiplier;
 }
 
 void renderPiece(Piece toRender, int topX, int topY, int size){
@@ -77,7 +71,7 @@ void keyPressed(){
   current.rotate();
 board.render();}else if(key == 's' || keyCode == DOWN){
     if(current.dropOne()) {
-      dropScore += 3;
+      dropScore += 3 * scoreMultiplier;
     }
   }else if(key == 'a' || keyCode == LEFT){
     current.moveLeft();
@@ -87,7 +81,7 @@ board.render();}else if(key == 's' || keyCode == DOWN){
     board.render();
   }else if(key == ' '){
     current.quickDrop();
-    dropScore += 20; //drop bonus
+    dropScore += 20 * scoreMultiplier; //drop bonus
     board.render();
   }else if(key == 'n' && debug){
     board.spawnPiece();}
@@ -113,14 +107,17 @@ int score() {
       break;
     }
    }
-    if(rowCleared) {
+  if(rowCleared) {
       totalClearr++;
      for(int j = 2; j < 12; j++) {
        if(board.board[i][j].getPower().equals("freeze")){
-         print("freezing");
          frozen = true;
          frozenTimer = frameCount;  
-     }
+     }else if(board.board[i][j].getPower().equals("score")){
+          print("scoreboosting");
+       scoreMultiplier = 3;
+       scoreMultTimer = frameCount;  
+   }
       board.board[i][j] = null;
      }
      board.dropDown(i);
@@ -140,8 +137,12 @@ text("Score: " + totalScore, 20, 120);
 }
 
 void removePowerUps(){
-  if(frozen && frameCount - frozenTimer > 60 * 5){
-    frozen = false;}}
+  if(frozen && frameCount - frozenTimer > 60 * 3){
+    frozen = false;}
+  if(scoreMultiplier > 1 && frameCount - scoreMultTimer > 60 * 5){
+    scoreMultiplier = 1;
+  }
+}
 
 void draw() {
   if(gameOver) {
@@ -164,5 +165,13 @@ void draw() {
      fill(66, 135, 200);
      totalScore = dropScore + clearScore + pieceScore;
     text("Score: " + totalScore, 695, 120);
+      textSize(30);
+
+    if(frozen){
+      text("Frozen for " + (60. * 3 - (frameCount - frozenTimer))/60 + " seconds", 695, 200);
+    }
+    if(scoreMultiplier > 1){
+        text("3x score for " + (60. * 5 - (frameCount - scoreMultTimer))/60 + " seconds", 695, 240);
+    }
     }
 }

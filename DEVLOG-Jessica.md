@@ -32,7 +32,7 @@ Added quickdrop, and dropping during tick (very janky), and made a couple pieces
 Started work on end condition, fixed pieces spawning in, and added left and right translations and keybinds to all currently implemented translations
 
 ### May 30th Homework
-Made an end screen and end condition, and tried to determine the source of a bug where it will just flash columns colors on the screen towards the end of the game.
+Made an end screen and end condition, and tried to determine the source of a bug where it will just flash colors on the screen towards the end of the game.
 
 ### June 1 class
 Tried to find source of a bug. was not successful.
@@ -48,3 +48,6 @@ Made it show the next couple pieces and the score show up.
 
 ### June 3 in class
 Added powerups -- Icons for freeze and score bonus and effects for freeze
+
+### June 3 HW
+Fixed bug where new pieces didnt spawn while freeze was active and added score multiplier powerup and a line of text showing which powerups were active

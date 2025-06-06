@@ -70,20 +70,21 @@ shape = allpieces.get((int) (Math.random() * allpieces.size()));
       board.set(part.getROffset() + centerR, part.getCOffset() + centerC,  part);
     }}
 
-  boolean dropOne(){
-    if(canFit(board, centerR + 1, centerC)){
-      removePieceFromBoard(board);
-      centerR++;
-     addPieceToBoard(board);
-   return true;
-  }else{
+  boolean turnFallen(){
+    if(!canFit(board, centerR + 1, centerC)){
        for(Block part: shape){
       part.setType("fallen");
   }
-      return false;
-
+    }
+    return !canFit(board, centerR + 1, centerC); //returns true if it became fallen.
   }
-  }
+  boolean dropOne(){
+    if(!turnFallen()){
+    removePieceFromBoard(board);
+    centerR++;
+   addPieceToBoard(board);
+   return true;
+  }else{return false;}}
   void moveRight(){
     if(canFit(board, centerR, centerC + 1)){
       removePieceFromBoard(board);

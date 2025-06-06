@@ -33,23 +33,24 @@ void setup() {
 
 
 void tick() {
-  if(gameOver) {
-    return;
-  }
-  if(frozen){
-    score();
-  }else{
-  if(!current.dropOne()){
+
+  if(current.turnFallen()){
     dropScore += 10;//per piece score bonus
-    pieceScore += 5;
     clearScore += score();//line clear bonus
     current = board.spawnPiece();
-   
+  }
   if(current == null){
-  gameOver = true;}
+  gameOver = true;
+    return;}
+  if(!frozen){
+    current.dropOne();
+  }
+    pieceScore += 5;
+
+  
 
 }
-}}
+
 void renderPiece(Piece toRender, int topX, int topY, int size){
   //Renders it in a 7x7 grid from topX to topY of size size
        stroke(0);
@@ -64,7 +65,8 @@ for(Block part : toRender.shape){
 
   }
 }
-void renderNextPieces(){    fill(200);
+void renderNextPieces(){    
+    fill(200);
     square(510, 60, 5000);
     for(int i =0; i < board.nextPieces.size(); i++){
     int size = 20;

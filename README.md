@@ -16,11 +16,13 @@ Our MVP features the following:
 (note: we discovered a bug where sustained playing leads to a "smoosh" effect at the top of the screen when pieces drop, but this will be fixed.)
 
 Post-MVP, we'll try to incorporate the following:
-- Next piece preview.
-- Visible score on RHS.
-- Greater speed/difficulty options (slow, medium, fast).
-- Greater coloring options.
-- and more! (TBD)
+- :white_check_mark: Next piece preview.
+- :white_check_mark: Visible score on RHS.
+- :white_check_mark: Powerups! Clear powerup blocks to get special powerups
+  - :white_check_mark: Freezing of the game (snowflake blocks): (Stops automatic dropping so YOU can control where the piece goes for 3 seconds)
+  - :white_check_mark: Score bonus (star blocks): Multiplies your score by 3x for 5 seconds
+- Greater speed/difficulty options (slow, medium, fast)
+
 
 
 # Intended usage:

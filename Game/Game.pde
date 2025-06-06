@@ -47,10 +47,11 @@ void tick() {
 
 void renderPiece(Piece toRender, int topX, int topY, int size){
   //Renders it in a 7x7 grid from topX to topY of size size
-       stroke(0);
+     stroke(0);
      fill(0);
      square(topX, topY, size * 7);
       noStroke();
+     if(toRender == null){return;}
 for(Block part : toRender.shape){
     fill(part.c);
       square(topX + size * (part.getCOffset() + 3), topY + size * (part.getROffset() +3), size);
@@ -62,9 +63,15 @@ for(Block part : toRender.shape){
 void renderNextPieces(){    
     fill(200);
     square(510, 60, 5000);
-    for(int i =0; i < board.nextPieces.size(); i++){
-    int size = 20;
-    renderPiece(board.nextPieces.get(i), 510, 60 + (size * 7 + 10) * i, size);}}
+  int size = 20;
+
+    for(int i =0; i < 3; i++){
+    renderPiece(board.nextPieces.get(i), 510, 60 + (size * 7 + 10) * i, size);}
+     
+     fill(255);
+     text("Stashed piece", 510, 60 + (size * 7 + 10) * 3 + 50);
+     renderPiece(swapOut, 510, 60 + (size * 7 + 10) * 3 + 100, size);
+}
 
 void keyPressed(){
   if(key == 'r' || key == 'w' || keyCode == UP){

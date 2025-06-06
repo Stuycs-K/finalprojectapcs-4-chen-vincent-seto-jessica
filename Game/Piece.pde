@@ -17,7 +17,7 @@ public class Piece{
     this.board = board;
     this.centerC = centerC;
     this.centerR = centerR;
-    this.c = color((int) ( 256 * Math.random()),(int) ( 256 * Math.random()),(int) ( 256 * Math.random())) ;
+    this.c = color((int) ( 100 + 156 * Math.random()),(int) ( 100 + 156 * Math.random()),(int) ( 100 + 156 * Math.random())) ;
     //O
     allpieces.add(new Block[] {new Block(2, 0), new  Block(1, 0), new Block(-1, 0), new  Block(0, 0),new  Block(-2, 0)});
   //P
@@ -68,20 +68,21 @@ shape = allpieces.get((int) (Math.random() * allpieces.size()));
       board.set(part.getROffset() + centerR, part.getCOffset() + centerC,  part);
     }}
 
-  boolean dropOne(){
-    if(canFit(board, centerR + 1, centerC)){
-      removePieceFromBoard(board);
-      centerR++;
-     addPieceToBoard(board);
-   return true;
-  }else{
+  boolean turnFallen(){
+    if(!canFit(board, centerR + 1, centerC)){
        for(Block part: shape){
       part.setType("fallen");
   }
-      return false;
-
+    }
+    return !canFit(board, centerR + 1, centerC); //returns true if it became fallen.
   }
-  }
+  boolean dropOne(){
+    if(!turnFallen()){
+    removePieceFromBoard(board);
+    centerR++;
+   addPieceToBoard(board);
+   return true;
+  }else{return false;}}
   void moveRight(){
     if(canFit(board, centerR, centerC + 1)){
       removePieceFromBoard(board);
@@ -107,7 +108,7 @@ shape = allpieces.get((int) (Math.random() * allpieces.size()));
    Block[] newRotation = new Block[shape.length];
    int i = 0;
   for(Block part: shape){
-    newRotation[i] = new Block(part.getROffset(), - 1 * part.getCOffset(), c);
+    newRotation[i] = new Block(part.getROffset(), - 1 * part.getCOffset(), c, part.powerup);
     i++;
   }
   if(canFit(board, centerR, centerC, newRotation)){

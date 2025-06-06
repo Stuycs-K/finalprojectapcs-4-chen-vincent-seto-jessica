@@ -1,22 +1,40 @@
 public class Block{
-
+  String powerup = "none"; //Freeze pauses the game, Score buffs the score, 
   color c = 0;
    int col;
   int row; //x's and ys relative to center.
   String type;
+  PImage image;
 
 
   Block(int col, int row){
     this.col = col;
     this.row = row;
     this.type = "falling";
+    if(Math.random() < 0.05){ //gives a 5% chance to spawn w/ a powerup
+       int powerUp = (int) (Math.random() * 2);
+       if(powerUp == 0){
+         powerup = "freeze";
+         image = loadImage("snowflake.jpg");
+    }else if(powerUp == 1){
+      powerup = "score";
+      image = loadImage("scoreboost.jpeg");  
   }
-  Block(int col, int row, int c){
+  }}
+  
+  Block(int col, int row, int c, String powerUp){
     this(col, row);
     this.c = c;
-  }
+    this.powerup = "none";
+    this.image = null;
+    this.powerup = powerUp;
+    if(powerup.equals("freeze")){
+           image = loadImage("snowflake.jpg");
+  }else if(powerup.equals("score")){
+    image = loadImage("scoreboost.jpeg");}}
   
-  
+ 
+ PImage getImage(){return image;}
   Block(String type){
 
     this.c = color(0,0,83);
@@ -31,7 +49,7 @@ public class Block{
   }
 
  
-
+  public String getPower(){return this.powerup;}
   public int getCOffset(){return this.col;}
   public int getROffset(){return this.row;}
 

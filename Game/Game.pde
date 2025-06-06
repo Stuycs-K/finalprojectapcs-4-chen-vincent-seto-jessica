@@ -3,6 +3,7 @@ import java.util.Arrays;
 Board board;
 
 Piece current;
+Piece swapOut;
 boolean gameOver = false;
 boolean debug = true;
 
@@ -88,6 +89,23 @@ board.render();}else if(key == 's' || keyCode == DOWN){
     print(current);
     }else if(key == 'p' && debug){
       frozen = !frozen;
+    }else if(key =='q'){
+      if(swapOut == null){
+        swapOut = current;
+        current.removePieceFromBoard(board);
+        current = board.spawnPiece();
+      }else{
+        if(swapOut.canFit(board, current.getR(), current.getC())){
+          current.removePieceFromBoard(board);
+          int newR = current.getR();
+          int newC = current.getC();
+          Piece temp = swapOut;
+          swapOut = current;
+          current = temp;
+          current.teleport(newR, newC);
+          current.addPieceToBoard(board);
+        }
+      }
     }
  
   board.render();
@@ -155,7 +173,6 @@ void draw() {
   }
  
   if(frameCount % 30 == 0){
-
     tick();
     board.render();
     removePowerUps();
@@ -164,9 +181,7 @@ void draw() {
      fill(66, 135, 200);
      totalScore = dropScore + clearScore + pieceScore;
     text("Score: " + totalScore, 695, 120);
- 
       textSize(30);
-
     if(frozen){
       text("Frozen for " + (60. * 3 - (frameCount - frozenTimer))/60 + " seconds", 695, 200);
     }

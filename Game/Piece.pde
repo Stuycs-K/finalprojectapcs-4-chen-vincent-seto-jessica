@@ -68,7 +68,10 @@ shape = allpieces.get((int) (Math.random() * allpieces.size()));
     }
 
   }
-
+  
+  void teleport(int r, int c){
+    centerR = r;
+    centerC = c;}
   void removePieceFromBoard(Board board){
      for(Block part: shape){
 
@@ -116,7 +119,8 @@ shape = allpieces.get((int) (Math.random() * allpieces.size()));
     while(dropOne()){};
   }
 
-
+  int getR(){return centerR;}
+  int getC(){return centerC;}
   boolean rotate(){
    Block[] newRotation = new Block[shape.length];
    int i = 0;

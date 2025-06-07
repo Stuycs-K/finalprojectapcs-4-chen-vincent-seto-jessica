@@ -64,17 +64,16 @@ for(Block part : toRender.shape){
 void renderNextPieces(){    
     fill(200);
     square(510, 60, 5000);
-  int size = 20;
-
+    int size = 20;
     for(int i =0; i < 3; i++){
     renderPiece(board.nextPieces.get(i), 510, 60 + (size * 7 + 10) * i, size);}
-     
      fill(255);
      text("Stashed piece with " + stashesLeft + " uses of stash left", 510, 60 + (size * 7 + 10) * 3 + 50);
      renderPiece(swapOut, 510, 60 + (size * 7 + 10) * 3 + 100, size);
 }
 
 void keyPressed(){
+  if(current == null){return;}
   if(key == 'r' || key == 'w' || keyCode == UP){
   current.rotate();
 board.render();}else if(key == 's' || keyCode == DOWN){
@@ -101,21 +100,22 @@ board.render();}else if(key == 's' || keyCode == DOWN){
     if(swapOut == null && stashesLeft > 0 && board.nextPieces.get(0).canFit(board, current.getR(), current.getC())){
         swapOut = current;
         current.removePieceFromBoard(board);
-        int newR = current.getR();
-        int newC = current.getC();
+        //int newR = current.getR();
+        //int newC = current.getC();
         current = board.spawnPiece(); 
-        current.teleport(newR, newC);
+        //current.teleport(newR, newC);
         stashesLeft--;
     }else if (stashesLeft > 0 && swapOut.canFit(board, current.getR(), current.getC())){
           current.removePieceFromBoard(board);
-          int newR = current.getR();
-          int newC = current.getC();
+          //int newR = current.getR();
+          //int newC = current.getC();
+          int newR =4;
+          int newC = board.getWidth()/2;
           Piece temp = swapOut;
           swapOut = current;
           current = temp;
           current.teleport(newR, newC);
           stashesLeft--;
-
         }
 
       }
@@ -143,10 +143,9 @@ int score() {
          frozen = true;
          frozenTimer = frameCount;  
      }else if(board.board[i][j].getPower().equals("score")){
-          print("scoreboosting");
        scoreMultiplier = 3;
        scoreMultTimer = frameCount;  
-   }
+   }else if(board.board[i][j].getPower().equals("stash")){stashesLeft++;}
       board.board[i][j] = null;
      }
      board.dropDown(i);

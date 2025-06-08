@@ -166,17 +166,6 @@ textSize(120);
 fill(255,0,0);
 text("Game Over!", 200,450);
 fill(255,100,255);
-textSize(40);
-text("Try again?", 400,500);
-textSize(20);
-text("(y)es/(n)o",450, 535);
-if(key == 'y') {
-  //buggy weird
- setup();
- gameOver = false;
- draw();
- tick();
-}
 
 }
 

@@ -158,9 +158,24 @@ int score() {
 
 void endGame() {
  background(30);
- textSize(100);
- fill(50, 168, 82);
-text("Score: " + totalScore, 20, 120); 
+ textSize(60);
+ fill(255,255,255);
+text("Score: " + totalScore, 20, 80); 
+textSize(120);
+fill(255,0,0);
+text("Game Over!", 200,450);
+fill(255,100,255);
+textSize(40);
+text("Try again?", 400,500);
+textSize(20);
+text("(y)es/(n)o",450, 535);
+if(key == 'y') {
+  //buggy weird
+ setup();
+ gameOver = false;
+ draw();
+ tick();
+}
 
 }
 
@@ -176,11 +191,11 @@ void draw() {
   if(gameOver) {
     background(30);
     endGame();
+    
     System.out.println("Game Over. Score: " + totalScore+ "\n");
     System.out.println("Stats/Subscores:\nDropping score: " + dropScore + "\nNumber of pieces dropped: " + 
     pieceScore/15 + "\nRows Cleared Score: " + clearScore);
     noLoop();
-    return;
   }
  
   if(frameCount % 30 == 0){

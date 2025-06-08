@@ -29,7 +29,7 @@ Post-MVP, we'll try to incorporate the following:
 
 ![PIECES DIAGRAM](pieces.jpeg?raw=true "Diagram of all pentomino pieces. Our implemented pieces may be different due to reflections for optimization." )
 
-- We will randomly drop one of 12 pentominoes (O,P,Q,R,S,T,U,V,W,X,Y,Z -- see attached diagram) and the player will have to arrange it in a way to clear as many rows as possible. 
+- We will randomly drop one of 18 pentominoes (O,P,Q,R,S,T,U,V,W,X,Y,Z, as well as reflections of P,Q,R,S,Y,Z -- see attached diagram) and the player will have to arrange it in a way to clear as many rows as possible. 
 - We'll end the game when new blocks can no longer be spawned in. (e.g. it hits top of the board)
 - When rows are filled, the row will clear and all above placed blocks will move down accordingly.
 - To move blocks, use the following:
@@ -37,4 +37,5 @@ Post-MVP, we'll try to incorporate the following:
   - 'd'/right key to move piece right
   - 'w'/up key to rotate in a counterclockwise fashion
   - 's'/down key to lower piece by one
+  - 'q' key to hold a piece
   - space key to quick drop to lowest position (e.g. can't be dropped further without collision)

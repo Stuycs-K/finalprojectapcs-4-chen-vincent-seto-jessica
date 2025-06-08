@@ -5,7 +5,7 @@ Board board;
 Piece current;
 Piece swapOut;
 boolean gameOver = false;
-boolean debug = true;
+boolean debug = false;
 
 //scoring
 int dropScore = 0;
@@ -105,7 +105,7 @@ board.render();}else if(key == 's' || keyCode == DOWN){
         current = board.spawnPiece(); 
         //current.teleport(newR, newC);
         stashesLeft--;
-    }else if (stashesLeft > 0 && swapOut.canFit(board, current.getR(), current.getC())){
+    }else if (stashesLeft > 0 && swapOut != null && swapOut.canFit(board, current.getR(), current.getC())){
           current.removePieceFromBoard(board);
           //int newR = current.getR();
           //int newC = current.getC();

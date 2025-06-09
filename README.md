@@ -38,3 +38,6 @@ Post-MVP, we'll try to incorporate the following:
   - 's'/down key to lower piece by one
   - 'q' key to stash a piece
   - space key to quick drop to lowest position (e.g. can't be dropped further without collision)
+
+video link: https://drive.google.com/file/d/13Oat_70-U6RsPPEdB56SLY2I7NTwIXoq/view?usp=sharing
+Video link:

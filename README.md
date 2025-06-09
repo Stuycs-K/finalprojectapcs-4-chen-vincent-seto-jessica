@@ -13,8 +13,6 @@ Our MVP features the following:
 - :white_check_mark: Score tracking based on # of rows cleared, pieces used, and drops.
 - :white_check_mark: Game-over detection.
 
-(note: we discovered a bug where sustained playing leads to a "smoosh" effect at the top of the screen when pieces drop, but this will be fixed.)
-
 Post-MVP, we'll try to incorporate the following:
 - :white_check_mark: Next piece preview.
 - :white_check_mark: Visible score on RHS.
@@ -31,7 +29,7 @@ Post-MVP, we'll try to incorporate the following:
 ![PIECES DIAGRAM](pieces.jpeg?raw=true "Diagram of all pentomino pieces. Our implemented pieces may be different due to reflections for optimization." )
 
 - We will randomly drop one of 18 pentominoes (O,P,Q,R,S,T,U,V,W,X,Y,Z, as well as reflections of P,Q,R,S,Y,Z -- see attached diagram) and the player will have to arrange it in a way to clear as many rows as possible. 
-- We'll end the game when new blocks can no longer be spawned in. (e.g. it hits top of the board)
+- We'll end the game when new blocks can no longer be spawned in. (e.g. it hits red line at top of the board)
 - When rows are filled, the row will clear and all above placed blocks will move down accordingly.
 - To move blocks, use the following:
   - 'a'/left key to move piece left

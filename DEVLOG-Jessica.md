@@ -52,5 +52,5 @@ Added powerups -- Icons for freeze and score bonus and effects for freeze
 ### June 3 HW
 Fixed bug where new pieces didnt spawn while freeze was active and added score multiplier powerup and a line of text showing which powerups were active\
 
-### June 5 CW
+### June 6  CW
 Added function to stash a piece you dont like

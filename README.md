@@ -21,8 +21,8 @@ Post-MVP, we'll try to incorporate the following:
 - :white_check_mark: Powerups! Clear powerup blocks to get special powerups
   - :white_check_mark: Freezing of the game (snowflake blocks): (Stops automatic dropping so YOU can control where the piece goes for 3 seconds)
   - :white_check_mark: Score bonus (star blocks): Multiplies your score by 3x for 5 seconds
-  -  :white_check_mark: Added opportunities to swap out a piece
-- :white_check_mark: Ability to swap out a piece you don't like for another one.
+  -  :white_check_mark: Added opportunities to stash a piece
+- :white_check_mark: Ability to "stash" a piece that you don't like. Stashing will either swap the current piece with the stashed piece, or put current piece in stash and spawn a new piece. Pieces will always appear at the top of the screen.
 - :white_check_mark: A clearRow that isn't bugged
 
 
@@ -38,5 +38,5 @@ Post-MVP, we'll try to incorporate the following:
   - 'd'/right key to move piece right
   - 'w'/up/'r' key to rotate in a counterclockwise fashion
   - 's'/down key to lower piece by one
-  - 'q' key to hold a piece
+  - 'q' key to stash a piece
   - space key to quick drop to lowest position (e.g. can't be dropped further without collision)
